@@ -14,4 +14,10 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 	#import <CoreData/CoreData.h>
+
+	#import "SPReskitManager.h"
+
+	// Consts
+	#import "SPConstants.h"
+
 #endif

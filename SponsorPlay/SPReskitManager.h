@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <RestKit/RestKit.h>
 
 @interface SPReskitManager : NSObject
 
 // Sigleton
 + (instancetype)sharedInstance;
+
+// Properties
+@property (nonatomic, strong) RKObjectManager *manager;
+@property (nonatomic, strong) RKManagedObjectStore *managedObjectStore;
 
 @end
