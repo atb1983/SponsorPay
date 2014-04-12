@@ -8,6 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SPConstants : NSObject
+extern NSString *const kAPIKey;
 
-@end
+extern NSString* const kAPIBaseURL;
+extern NSString* const kAPIOffersEndPoint;
+
+extern NSString* const kAPIOffersAppId;
+extern NSString* const kAPIOffersUid;
+extern NSString* const kAPIOffersIp;
+extern NSString* const kAPIOffersLocale;
+extern NSString* const kAPIOffersDevice;
+extern NSString* const kAPIOffersDeviceId;
+extern NSString* const kAPIOffersPsTime;
+extern NSString* const kAPIOffersPub0;
+extern NSString* const kAPIOffersTimeStamp;
+extern NSString* const kAPIOffersHashKey;
+extern NSString* const kAPIOffersOsVersion;
+extern NSString* const kAPIOffersPage;
