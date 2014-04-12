@@ -27,6 +27,11 @@
 		787EA2A018F867420003BB3A /* SponsorPlayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EA29F18F867420003BB3A /* SponsorPlayTests.m */; };
 		787EA2AC18F867CE0003BB3A /* SPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EA2AB18F867CE0003BB3A /* SPConstants.m */; };
 		787EA2B018F86B690003BB3A /* SPReskitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EA2AF18F86B690003BB3A /* SPReskitManager.m */; };
+		787EA2B218F88B560003BB3A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA2B118F88B560003BB3A /* AdSupport.framework */; };
+		787EA2B418F893C40003BB3A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA2B318F893C40003BB3A /* Security.framework */; };
+		787EA2B818F893F40003BB3A /* NSString+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EA2B718F893F40003BB3A /* NSString+Extentions.m */; };
+		787EA2BE18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EA2BD18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m */; };
+		78F9BF3A18F902690044B82E /* SPRespose.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF3918F902690044B82E /* SPRespose.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +74,14 @@
 		787EA2AB18F867CE0003BB3A /* SPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPConstants.m; path = Utils/SPConstants.m; sourceTree = "<group>"; };
 		787EA2AE18F86B690003BB3A /* SPReskitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPReskitManager.h; sourceTree = "<group>"; };
 		787EA2AF18F86B690003BB3A /* SPReskitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPReskitManager.m; sourceTree = "<group>"; };
+		787EA2B118F88B560003BB3A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		787EA2B318F893C40003BB3A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		787EA2B618F893F40003BB3A /* NSString+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Extentions.h"; path = "Categories/NSString+Extentions.h"; sourceTree = "<group>"; };
+		787EA2B718F893F40003BB3A /* NSString+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Extentions.m"; path = "Categories/NSString+Extentions.m"; sourceTree = "<group>"; };
+		787EA2BC18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+SponsorPlay.h"; path = "Categories/NSMutableDictionary+SponsorPlay.h"; sourceTree = "<group>"; };
+		787EA2BD18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+SponsorPlay.m"; path = "Categories/NSMutableDictionary+SponsorPlay.m"; sourceTree = "<group>"; };
+		78F9BF3818F902690044B82E /* SPRespose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRespose.h; path = Model/SPRespose.h; sourceTree = "<group>"; };
+		78F9BF3918F902690044B82E /* SPRespose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRespose.m; path = Model/SPRespose.m; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787EA2B418F893C40003BB3A /* Security.framework in Frameworks */,
+				787EA2B218F88B560003BB3A /* AdSupport.framework in Frameworks */,
 				787EA26E18F867420003BB3A /* CoreGraphics.framework in Frameworks */,
 				787EA27218F867420003BB3A /* CoreData.framework in Frameworks */,
 				787EA27018F867420003BB3A /* UIKit.framework in Frameworks */,
@@ -122,6 +137,8 @@
 		787EA26A18F867420003BB3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				787EA2B318F893C40003BB3A /* Security.framework */,
+				787EA2B118F88B560003BB3A /* AdSupport.framework */,
 				787EA26B18F867420003BB3A /* Foundation.framework */,
 				787EA26D18F867420003BB3A /* CoreGraphics.framework */,
 				787EA26F18F867420003BB3A /* UIKit.framework */,
@@ -135,6 +152,8 @@
 		787EA27318F867420003BB3A /* SponsorPlay */ = {
 			isa = PBXGroup;
 			children = (
+				78F9BF3718F902540044B82E /* Model */,
+				787EA2B518F893D00003BB3A /* Categories */,
 				787EA2AD18F868A40003BB3A /* WebServices */,
 				787EA2A918F867B60003BB3A /* Utils */,
 				787EA27C18F867420003BB3A /* SPAppDelegate.h */,
@@ -196,6 +215,26 @@
 				787EA2AF18F86B690003BB3A /* SPReskitManager.m */,
 			);
 			name = WebServices;
+			sourceTree = "<group>";
+		};
+		787EA2B518F893D00003BB3A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				787EA2B618F893F40003BB3A /* NSString+Extentions.h */,
+				787EA2B718F893F40003BB3A /* NSString+Extentions.m */,
+				787EA2BC18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.h */,
+				787EA2BD18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		78F9BF3718F902540044B82E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78F9BF3818F902690044B82E /* SPRespose.h */,
+				78F9BF3918F902690044B82E /* SPRespose.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,8 +374,11 @@
 				787EA27A18F867420003BB3A /* main.m in Sources */,
 				787EA2B018F86B690003BB3A /* SPReskitManager.m in Sources */,
 				787EA2AC18F867CE0003BB3A /* SPConstants.m in Sources */,
+				78F9BF3A18F902690044B82E /* SPRespose.m in Sources */,
+				787EA2B818F893F40003BB3A /* NSString+Extentions.m in Sources */,
 				787EA28718F867420003BB3A /* SPMasterViewController.m in Sources */,
 				787EA28418F867420003BB3A /* SponsorPlay.xcdatamodeld in Sources */,
+				787EA2BE18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m in Sources */,
 				787EA27E18F867420003BB3A /* SPAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
