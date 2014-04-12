@@ -72,8 +72,6 @@
 	[self addResponseDescription];
 	[self addInformationDescription];
 	[self addOffersDescription];
-	
-	[self loadOffersDemo];
 }
 
 #pragma mark -
@@ -126,10 +124,10 @@
 
 - (void)addOffersDescription
 {
-	// Offer
-    RKEntityMapping *offerMapping = [RKEntityMapping mappingForEntityForName:kSPEntityOffer inManagedObjectStore:self.managedObjectStore];
+	// Offers
+    RKEntityMapping *offersMapping = [RKEntityMapping mappingForEntityForName:kSPEntityOffer inManagedObjectStore:self.managedObjectStore];
 	
-    [offerMapping addAttributeMappingsFromDictionary:@{
+    [offersMapping addAttributeMappingsFromDictionary:@{
 													   @"title":			@"title",
 													   @"offer_id":			@"offerId",
 													   @"teaser":			@"teaser",
@@ -138,18 +136,18 @@
 													   @"payout":			@"payout",
 													   }];
 	
-	offerMapping.identificationAttributes = @[@"offerId"];
+	offersMapping.identificationAttributes = @[@"offerId"];
 	
-	[self addOfferTypeDescriptionWithOfferMapping:offerMapping];
-	[self addThumbnailDescriptionWithOfferMapping:offerMapping];
-	[self addTimeToPayoutDescriptionWithOfferMapping:offerMapping];
+	[self addOfferTypeDescriptionWithOffersMapping:offersMapping];
+	[self addThumbnailDescriptionWithOffersMapping:offersMapping];
+	[self addTimeToPayoutDescriptionWithOffersMapping:offersMapping];
 	
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:offerMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"offers" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:offersMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"offers" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 	
     [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
 }
 
-- (void)addOfferTypeDescriptionWithOfferMapping:(RKEntityMapping *)offerMapping
+- (void)addOfferTypeDescriptionWithOffersMapping:(RKEntityMapping *)offersMapping
 {
 	// Offer Type
     RKEntityMapping *offerTypeMapping = [RKEntityMapping mappingForEntityForName:kSPEntityOfferType inManagedObjectStore:self.managedObjectStore];
@@ -161,10 +159,10 @@
 	
 	offerTypeMapping.identificationAttributes = @[@"offerTypeId"];
 	
-	[offerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"offer_types" toKeyPath:@"offerToOfferType" withMapping:offerTypeMapping]];
+	[offersMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"offer_types" toKeyPath:@"offerToOfferType" withMapping:offerTypeMapping]];
 }
 
-- (void)addThumbnailDescriptionWithOfferMapping:(RKEntityMapping *)offerMapping
+- (void)addThumbnailDescriptionWithOffersMapping:(RKEntityMapping *)offersMapping
 {
 	// Thumbnail
     RKEntityMapping *thumbnailMapping = [RKEntityMapping mappingForEntityForName:kSPEntityThumbnail inManagedObjectStore:self.managedObjectStore];
@@ -174,10 +172,10 @@
 														   @"hires":	@"hires"
 														   }];
 	
-	[offerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"thumbnail" toKeyPath:@"offerToThumbnail" withMapping:thumbnailMapping]];
+	[offersMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"thumbnail" toKeyPath:@"offerToThumbnail" withMapping:thumbnailMapping]];
 }
 
-- (void)addTimeToPayoutDescriptionWithOfferMapping:(RKEntityMapping *)offerMapping
+- (void)addTimeToPayoutDescriptionWithOffersMapping:(RKEntityMapping *)offersMapping
 {
 	// Time To Payout
     RKEntityMapping *timeToPayoutMapping = [RKEntityMapping mappingForEntityForName:kSPEntityTimeToPayout inManagedObjectStore:self.managedObjectStore];
@@ -187,14 +185,9 @@
 															  @"readable":	@"readable"
 															  }];
 	
-	[offerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"time_to_payout" toKeyPath:@"timeToPayout" withMapping:timeToPayoutMapping]];
+	[offersMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"time_to_payout" toKeyPath:@"timeToPayout" withMapping:timeToPayoutMapping]];
 }
 #pragma mark - WebServices
-
-- (void)loadOffersDemo
-{
-	[self loadOffersByAppId:@"2070" uid:@"Spiderman" apiKey:kAPIKey pub0:@"112"];
-}
 
 - (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0
 {
@@ -220,8 +213,6 @@
 	
 	[self.manager getObject:nil path:kAPIOffersEndPoint parameters:offersDictionary success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
 		//		completionBlock(YES, nil);
-		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
-		NSLog(@"=======:%@",myDic);
 	} failure:^(RKObjectRequestOperation *operation, NSError *error) {
 		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
 		NSLog(@"=======:%@",myDic);

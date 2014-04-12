@@ -27,10 +27,11 @@
 		78F9BF8318F90DEB0044B82E /* TimeToPayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6318F90DEB0044B82E /* TimeToPayout.m */; };
 		78F9BF8418F90DEB0044B82E /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6518F90DEB0044B82E /* SPAppDelegate.m */; };
 		78F9BF8518F90DEB0044B82E /* SPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6718F90DEB0044B82E /* SPDetailViewController.m */; };
-		78F9BF8618F90DEB0044B82E /* SPMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6918F90DEB0044B82E /* SPMasterViewController.m */; };
+		78F9BF8618F90DEB0044B82E /* SPOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */; };
 		78F9BF8918F90DEB0044B82E /* SPReskitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6F18F90DEB0044B82E /* SPReskitManager.m */; };
 		78F9BF8A18F90DEB0044B82E /* SPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF7218F90DEB0044B82E /* SPConstants.m */; };
 		78F9BF8F18F90F0B0044B82E /* SponsorPay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6C18F90DEB0044B82E /* SponsorPay.xcdatamodeld */; };
+		78F9BF9518F927410044B82E /* SPOfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +69,8 @@
 		78F9BF6518F90DEB0044B82E /* SPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		78F9BF6618F90DEB0044B82E /* SPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDetailViewController.h; sourceTree = "<group>"; };
 		78F9BF6718F90DEB0044B82E /* SPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDetailViewController.m; sourceTree = "<group>"; };
-		78F9BF6818F90DEB0044B82E /* SPMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMasterViewController.h; sourceTree = "<group>"; };
-		78F9BF6918F90DEB0044B82E /* SPMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMasterViewController.m; sourceTree = "<group>"; };
+		78F9BF6818F90DEB0044B82E /* SPOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPOffersViewController.h; sourceTree = "<group>"; };
+		78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPOffersViewController.m; sourceTree = "<group>"; };
 		78F9BF6A18F90DEB0044B82E /* SponsorPay-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SponsorPay-Info.plist"; sourceTree = "<group>"; };
 		78F9BF6B18F90DEB0044B82E /* SponsorPay-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SponsorPay-Prefix.pch"; sourceTree = "<group>"; };
 		78F9BF6D18F90DEB0044B82E /* SponsorPay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SponsorPay.xcdatamodel; sourceTree = "<group>"; };
@@ -77,6 +78,8 @@
 		78F9BF6F18F90DEB0044B82E /* SPReskitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPReskitManager.m; sourceTree = "<group>"; };
 		78F9BF7118F90DEB0044B82E /* SPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPConstants.h; sourceTree = "<group>"; };
 		78F9BF7218F90DEB0044B82E /* SPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPConstants.m; sourceTree = "<group>"; };
+		78F9BF9318F927410044B82E /* SPOfferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOfferTableViewCell.h; path = Views/SPOfferTableViewCell.h; sourceTree = "<group>"; };
+		78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOfferTableViewCell.m; path = Views/SPOfferTableViewCell.m; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,17 +137,18 @@
 		78F9BF4B18F90DEB0044B82E /* SponsorPay */ = {
 			isa = PBXGroup;
 			children = (
+				78F9BF9218F927140044B82E /* Views */,
 				78F9BF9118F910A00044B82E /* Webservices */,
 				78F9BF4E18F90DEB0044B82E /* Categories */,
 				78F9BF5718F90DEB0044B82E /* Model */,
+				78F9BF7018F90DEB0044B82E /* Utils */,
 				78F9BF6418F90DEB0044B82E /* SPAppDelegate.h */,
 				78F9BF6518F90DEB0044B82E /* SPAppDelegate.m */,
 				78F9BF6618F90DEB0044B82E /* SPDetailViewController.h */,
 				78F9BF6718F90DEB0044B82E /* SPDetailViewController.m */,
-				78F9BF6818F90DEB0044B82E /* SPMasterViewController.h */,
-				78F9BF6918F90DEB0044B82E /* SPMasterViewController.m */,
+				78F9BF6818F90DEB0044B82E /* SPOffersViewController.h */,
+				78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */,
 				78F9BF6C18F90DEB0044B82E /* SponsorPay.xcdatamodeld */,
-				78F9BF7018F90DEB0044B82E /* Utils */,
 				78F9BF4C18F90DEB0044B82E /* Main.storyboard */,
 				78F9BF8E18F90E4D0044B82E /* Supporting Files */,
 			);
@@ -209,6 +213,15 @@
 				78F9BF6F18F90DEB0044B82E /* SPReskitManager.m */,
 			);
 			name = Webservices;
+			sourceTree = "<group>";
+		};
+		78F9BF9218F927140044B82E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78F9BF9318F927410044B82E /* SPOfferTableViewCell.h */,
+				78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +333,8 @@
 				78F9BF7A18F90DEB0044B82E /* NSString+Extentions.m in Sources */,
 				78F9BF8A18F90DEB0044B82E /* SPConstants.m in Sources */,
 				78F9BF8518F90DEB0044B82E /* SPDetailViewController.m in Sources */,
-				78F9BF8618F90DEB0044B82E /* SPMasterViewController.m in Sources */,
+				78F9BF8618F90DEB0044B82E /* SPOffersViewController.m in Sources */,
+				78F9BF9518F927410044B82E /* SPOfferTableViewCell.m in Sources */,
 				78F9BF7D18F90DEB0044B82E /* main.m in Sources */,
 				78F9BF8418F90DEB0044B82E /* SPAppDelegate.m in Sources */,
 				78F9BF8018F90DEB0044B82E /* SPInformation.m in Sources */,
@@ -479,6 +493,7 @@
 			children = (
 				78F9BF6D18F90DEB0044B82E /* SponsorPay.xcdatamodel */,
 			);
+			currentVersion = 78F9BF6D18F90DEB0044B82E /* SponsorPay.xcdatamodel */;
 			path = SponsorPay.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

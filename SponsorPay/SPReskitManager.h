@@ -11,11 +11,13 @@
 
 @interface SPReskitManager : NSObject
 
-// Sigleton
+// Singleton
 + (instancetype)sharedInstance;
 
 // Properties
 @property (nonatomic, strong) RKObjectManager *manager;
 @property (nonatomic, strong) RKManagedObjectStore *managedObjectStore;
+
+- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0;
 
 @end
