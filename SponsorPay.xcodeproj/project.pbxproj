@@ -134,7 +134,7 @@
 		78F9BF4B18F90DEB0044B82E /* SponsorPay */ = {
 			isa = PBXGroup;
 			children = (
-				78F9BF4C18F90DEB0044B82E /* Main.storyboard */,
+				78F9BF9118F910A00044B82E /* Webservices */,
 				78F9BF4E18F90DEB0044B82E /* Categories */,
 				78F9BF5718F90DEB0044B82E /* Model */,
 				78F9BF6418F90DEB0044B82E /* SPAppDelegate.h */,
@@ -144,9 +144,8 @@
 				78F9BF6818F90DEB0044B82E /* SPMasterViewController.h */,
 				78F9BF6918F90DEB0044B82E /* SPMasterViewController.m */,
 				78F9BF6C18F90DEB0044B82E /* SponsorPay.xcdatamodeld */,
-				78F9BF6E18F90DEB0044B82E /* SPReskitManager.h */,
-				78F9BF6F18F90DEB0044B82E /* SPReskitManager.m */,
 				78F9BF7018F90DEB0044B82E /* Utils */,
+				78F9BF4C18F90DEB0044B82E /* Main.storyboard */,
 				78F9BF8E18F90E4D0044B82E /* Supporting Files */,
 			);
 			path = SponsorPay;
@@ -201,6 +200,15 @@
 				78F9BF6B18F90DEB0044B82E /* SponsorPay-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78F9BF9118F910A00044B82E /* Webservices */ = {
+			isa = PBXGroup;
+			children = (
+				78F9BF6E18F90DEB0044B82E /* SPReskitManager.h */,
+				78F9BF6F18F90DEB0044B82E /* SPReskitManager.m */,
+			);
+			name = Webservices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

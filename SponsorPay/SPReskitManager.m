@@ -124,28 +124,71 @@
 	[[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
 }
 
-
 - (void)addOffersDescription
 {
-	// Current User
+	// Offer
     RKEntityMapping *offerMapping = [RKEntityMapping mappingForEntityForName:kSPEntityOffer inManagedObjectStore:self.managedObjectStore];
 	
     [offerMapping addAttributeMappingsFromDictionary:@{
-													  @"title":				@"title",
-													  @"offer_id":			@"offerId",
-													  @"teaser":			@"teaser",
-													  @"required_actions":	@"requiredActions",
-													  @"link":				@"link",
-													  @"payout":			@"payout",
-													  }];
+													   @"title":			@"title",
+													   @"offer_id":			@"offerId",
+													   @"teaser":			@"teaser",
+													   @"required_actions":	@"requiredActions",
+													   @"link":				@"link",
+													   @"payout":			@"payout",
+													   }];
 	
 	offerMapping.identificationAttributes = @[@"offerId"];
 	
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:offerMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"offer" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+	[self addOfferTypeDescriptionWithOfferMapping:offerMapping];
+	[self addThumbnailDescriptionWithOfferMapping:offerMapping];
+	[self addTimeToPayoutDescriptionWithOfferMapping:offerMapping];
+	
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:offerMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"offers" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 	
     [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
 }
 
+- (void)addOfferTypeDescriptionWithOfferMapping:(RKEntityMapping *)offerMapping
+{
+	// Offer Type
+    RKEntityMapping *offerTypeMapping = [RKEntityMapping mappingForEntityForName:kSPEntityOfferType inManagedObjectStore:self.managedObjectStore];
+	
+    [offerTypeMapping addAttributeMappingsFromDictionary:@{
+														   @"offer_type_id":	@"offerTypeId",
+														   @"readable":			@"readable",
+														   }];
+	
+	offerTypeMapping.identificationAttributes = @[@"offerTypeId"];
+	
+	[offerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"offer_types" toKeyPath:@"offerToOfferType" withMapping:offerTypeMapping]];
+}
+
+- (void)addThumbnailDescriptionWithOfferMapping:(RKEntityMapping *)offerMapping
+{
+	// Thumbnail
+    RKEntityMapping *thumbnailMapping = [RKEntityMapping mappingForEntityForName:kSPEntityThumbnail inManagedObjectStore:self.managedObjectStore];
+	
+    [thumbnailMapping addAttributeMappingsFromDictionary:@{
+														   @"lowres":	@"lowres",
+														   @"hires":	@"hires"
+														   }];
+	
+	[offerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"thumbnail" toKeyPath:@"offerToThumbnail" withMapping:thumbnailMapping]];
+}
+
+- (void)addTimeToPayoutDescriptionWithOfferMapping:(RKEntityMapping *)offerMapping
+{
+	// Time To Payout
+    RKEntityMapping *timeToPayoutMapping = [RKEntityMapping mappingForEntityForName:kSPEntityTimeToPayout inManagedObjectStore:self.managedObjectStore];
+	
+    [timeToPayoutMapping addAttributeMappingsFromDictionary:@{
+															  @"amount":	@"amount",
+															  @"readable":	@"readable"
+															  }];
+	
+	[offerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"time_to_payout" toKeyPath:@"timeToPayout" withMapping:timeToPayoutMapping]];
+}
 #pragma mark - WebServices
 
 - (void)loadOffersDemo
