@@ -32,6 +32,11 @@
 		787EA2B818F893F40003BB3A /* NSString+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EA2B718F893F40003BB3A /* NSString+Extentions.m */; };
 		787EA2BE18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EA2BD18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m */; };
 		78F9BF3A18F902690044B82E /* SPRespose.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF3918F902690044B82E /* SPRespose.m */; };
+		78F9BF3D18F906560044B82E /* SPInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF3C18F906560044B82E /* SPInformation.m */; };
+		78F9BF4018F90A700044B82E /* TimeToPayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF3F18F90A700044B82E /* TimeToPayout.m */; };
+		78F9BF4318F90A710044B82E /* Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF4218F90A710044B82E /* Thumbnail.m */; };
+		78F9BF4618F90A710044B82E /* OfferType.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF4518F90A710044B82E /* OfferType.m */; };
+		78F9BF4918F90A710044B82E /* Offer.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF4818F90A710044B82E /* Offer.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +87,16 @@
 		787EA2BD18F8FEAF0003BB3A /* NSMutableDictionary+SponsorPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+SponsorPlay.m"; path = "Categories/NSMutableDictionary+SponsorPlay.m"; sourceTree = "<group>"; };
 		78F9BF3818F902690044B82E /* SPRespose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRespose.h; path = Model/SPRespose.h; sourceTree = "<group>"; };
 		78F9BF3918F902690044B82E /* SPRespose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRespose.m; path = Model/SPRespose.m; sourceTree = "<group>"; };
+		78F9BF3B18F906560044B82E /* SPInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPInformation.h; path = Model/SPInformation.h; sourceTree = "<group>"; };
+		78F9BF3C18F906560044B82E /* SPInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPInformation.m; path = Model/SPInformation.m; sourceTree = "<group>"; };
+		78F9BF3E18F90A700044B82E /* TimeToPayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeToPayout.h; path = Model/TimeToPayout.h; sourceTree = "<group>"; };
+		78F9BF3F18F90A700044B82E /* TimeToPayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeToPayout.m; path = Model/TimeToPayout.m; sourceTree = "<group>"; };
+		78F9BF4118F90A710044B82E /* Thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Thumbnail.h; path = Model/Thumbnail.h; sourceTree = "<group>"; };
+		78F9BF4218F90A710044B82E /* Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Thumbnail.m; path = Model/Thumbnail.m; sourceTree = "<group>"; };
+		78F9BF4418F90A710044B82E /* OfferType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OfferType.h; path = Model/OfferType.h; sourceTree = "<group>"; };
+		78F9BF4518F90A710044B82E /* OfferType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfferType.m; path = Model/OfferType.m; sourceTree = "<group>"; };
+		78F9BF4718F90A710044B82E /* Offer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Offer.h; path = Model/Offer.h; sourceTree = "<group>"; };
+		78F9BF4818F90A710044B82E /* Offer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Offer.m; path = Model/Offer.m; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -231,10 +246,28 @@
 		78F9BF3718F902540044B82E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				78F9BF4A18F90A7E0044B82E /* AutoCreatedModel */,
 				78F9BF3818F902690044B82E /* SPRespose.h */,
 				78F9BF3918F902690044B82E /* SPRespose.m */,
+				78F9BF3B18F906560044B82E /* SPInformation.h */,
+				78F9BF3C18F906560044B82E /* SPInformation.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		78F9BF4A18F90A7E0044B82E /* AutoCreatedModel */ = {
+			isa = PBXGroup;
+			children = (
+				78F9BF4718F90A710044B82E /* Offer.h */,
+				78F9BF4818F90A710044B82E /* Offer.m */,
+				78F9BF4418F90A710044B82E /* OfferType.h */,
+				78F9BF4518F90A710044B82E /* OfferType.m */,
+				78F9BF4118F90A710044B82E /* Thumbnail.h */,
+				78F9BF4218F90A710044B82E /* Thumbnail.m */,
+				78F9BF3E18F90A700044B82E /* TimeToPayout.h */,
+				78F9BF3F18F90A700044B82E /* TimeToPayout.m */,
+			);
+			name = AutoCreatedModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +404,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				787EA28A18F867420003BB3A /* SPDetailViewController.m in Sources */,
+				78F9BF4018F90A700044B82E /* TimeToPayout.m in Sources */,
+				78F9BF4318F90A710044B82E /* Thumbnail.m in Sources */,
+				78F9BF4918F90A710044B82E /* Offer.m in Sources */,
+				78F9BF3D18F906560044B82E /* SPInformation.m in Sources */,
+				78F9BF4618F90A710044B82E /* OfferType.m in Sources */,
 				787EA27A18F867420003BB3A /* main.m in Sources */,
 				787EA2B018F86B690003BB3A /* SPReskitManager.m in Sources */,
 				787EA2AC18F867CE0003BB3A /* SPConstants.m in Sources */,

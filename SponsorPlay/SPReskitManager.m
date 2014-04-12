@@ -7,7 +7,9 @@
 //
 
 #import "SPReskitManager.h"
+
 #import "SPRespose.h"
+#import "SPInformation.h"
 
 #import "NSString+Extentions.h"
 #import "NSMutableDictionary+SponsorPlay.h"
@@ -68,6 +70,7 @@
     // ------------------
 	[self addErrorDescriptor];
 	[self addResponseDescription];
+	[self addInformationDescription];
 	
 	[self loadOffersDemo];
 }
@@ -99,6 +102,23 @@
 														  }];
 	
 	RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+	
+	[[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
+}
+
+- (void)addInformationDescription
+{
+	RKObjectMapping *informationMapping = [RKObjectMapping mappingForClass:[SPInformation class]];
+	
+	[informationMapping addAttributeMappingsFromDictionary:@{
+															 @"app_name":			@"appName",
+															 @"appid":				@"appid",
+															 @"virtual_currency":	@"virtualCurrency",
+															 @"country":			@"country",
+															 @"support_url":		@"supportUrl"
+															 }];
+	
+	RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:informationMapping method:RKRequestMethodAny pathPattern:nil keyPath:kSPEntityInformation statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 	
 	[[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
 }

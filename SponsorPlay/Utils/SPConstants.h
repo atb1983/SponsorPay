@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const kAPIKey;
-
 extern NSString* const kAPIBaseURL;
-extern NSString* const kAPIOffersEndPoint;
 
+// Offers
+extern NSString* const kAPIOffersEndPoint;
 extern NSString* const kAPIOffersAppId;
 extern NSString* const kAPIOffersUid;
 extern NSString* const kAPIOffersIp;
@@ -25,3 +25,6 @@ extern NSString* const kAPIOffersTimeStamp;
 extern NSString* const kAPIOffersHashKey;
 extern NSString* const kAPIOffersOsVersion;
 extern NSString* const kAPIOffersPage;
+
+// Entities
+extern NSString* const kSPEntityInformation;

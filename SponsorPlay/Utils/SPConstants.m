@@ -10,8 +10,9 @@
 
 NSString* const kAPIKey					=	@"1c915e3b5d42d05136185030892fbb846c278927";  // TODO: obscure it
 NSString* const kAPIBaseURL				=	@"http://api.sponsorpay.com";
-NSString* const kAPIOffersEndPoint		=	@"/feed/v1/offers.json";
 
+// Offers
+NSString* const kAPIOffersEndPoint		=	@"/feed/v1/offers.json";
 NSString* const kAPIOffersAppId			=	@"appid";
 NSString* const kAPIOffersUid			=	@"uid";
 NSString* const kAPIOffersIp			=	@"ip";
@@ -25,3 +26,6 @@ NSString* const kAPIOffersHashKey		=	@"hashkey";
 NSString* const kAPIOffersOsVersion		=	@"os_version";
 NSString* const kAPIOffersPage			=	@"page";
 NSString* const kAPIOffersTypes			=	@"offer_types";
+
+// Entities
+NSString* const kSPEntityInformation	=	@"information";

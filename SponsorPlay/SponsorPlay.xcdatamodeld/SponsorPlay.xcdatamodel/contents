@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Offer" representedClassName="Offer">
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="offerId" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+        <attribute name="payout" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="requiredActions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teaser" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="offerToOfferType" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OfferType" inverseName="offerTypeToOffer" inverseEntity="OfferType" syncable="YES"/>
+        <relationship name="offerToThumbnail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Thumbnail" inverseName="thumbnailToOffer" inverseEntity="Thumbnail" syncable="YES"/>
+        <relationship name="timeToPayout" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TimeToPayout" inverseName="timePayoutToOffer" inverseEntity="TimeToPayout" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="OfferType" representedClassName="OfferType" syncable="YES">
+        <attribute name="offerTypeId" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+        <attribute name="readable" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="offerTypeToOffer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Offer" inverseName="offerToOfferType" inverseEntity="Offer" syncable="YES"/>
+    </entity>
+    <entity name="Thumbnail" representedClassName="Thumbnail" syncable="YES">
+        <attribute name="hires" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lowres" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="thumbnailToOffer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Offer" inverseName="offerToThumbnail" inverseEntity="Offer" syncable="YES"/>
+    </entity>
+    <entity name="TimeToPayout" representedClassName="TimeToPayout" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="readable" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="timePayoutToOffer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Offer" inverseName="timeToPayout" inverseEntity="Offer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="Offer" positionX="117" positionY="81" width="128" height="178"/>
+        <element name="OfferType" positionX="394" positionY="-52" width="128" height="88"/>
+        <element name="Thumbnail" positionX="385" positionY="218" width="128" height="88"/>
+        <element name="TimeToPayout" positionX="385" positionY="99" width="128" height="88"/>
     </elements>
 </model>
