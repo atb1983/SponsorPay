@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString * requiredActions;
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSNumber * payout;
+@property (nonatomic, retain) NSNumber * storeId;
 @property (nonatomic, retain) NSSet *offerToOfferType;
 @property (nonatomic, retain) Thumbnail *offerToThumbnail;
 @property (nonatomic, retain) TimeToPayout *timeToPayout;

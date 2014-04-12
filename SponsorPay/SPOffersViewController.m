@@ -12,6 +12,9 @@
 
 #import "Offer.h"
 #import "Thumbnail.h"
+#import "TimeToPayout.h"
+
+#import "UIImage+Extentions.h"
 
 #import <SDWebImageManager.h>
 
@@ -92,11 +95,6 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
 	{
         return 0;
 	}
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 70.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -180,14 +178,16 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
 {
 	Offer *offer = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	
-    cell.textLabel.text = offer.title;
+    cell.titleLabel.text = offer.title;
+	cell.amountLabel.text = [NSString stringWithFormat:@"€%@", offer.timeToPayout.amount];
+	cell.teaserLabel.text	= offer.teaser;
     
-    [cell.imageView setImageWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
 							placeholderImage:[UIImage imageNamed:@"Placeholder"]];
 	
 	//using the SDWebImage downloader, start downloading the image
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-	[manager downloadWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
+	[manager downloadWithURL:[NSURL URLWithString:offer.offerToThumbnail.hires]
 					 options:0
 					progress:^(NSInteger receivedSize, NSInteger expectedSize) {
 					}
@@ -200,8 +200,7 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
 					   NSArray *visibleIndexPaths = [self.tableView indexPathsForVisibleRows];
 					   if ([visibleIndexPaths containsObject:indexPath])
 					   {
-						   // TODO: create a nice fade animation
-						   cell.imageView.image = image;
+						   cell.avatarImageView.image = [image imageWithRoundedCornersRadius:2.0f];
 					   }
 				   }];
 }

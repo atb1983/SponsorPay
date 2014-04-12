@@ -32,6 +32,7 @@
 		78F9BF8A18F90DEB0044B82E /* SPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF7218F90DEB0044B82E /* SPConstants.m */; };
 		78F9BF8F18F90F0B0044B82E /* SponsorPay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6C18F90DEB0044B82E /* SponsorPay.xcdatamodeld */; };
 		78F9BF9518F927410044B82E /* SPOfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */; };
+		78F9BF9B18F938460044B82E /* UIImage+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF9A18F938460044B82E /* UIImage+Extentions.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		78F9BF7218F90DEB0044B82E /* SPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPConstants.m; sourceTree = "<group>"; };
 		78F9BF9318F927410044B82E /* SPOfferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOfferTableViewCell.h; path = Views/SPOfferTableViewCell.h; sourceTree = "<group>"; };
 		78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOfferTableViewCell.m; path = Views/SPOfferTableViewCell.m; sourceTree = "<group>"; };
+		78F9BF9918F938460044B82E /* UIImage+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extentions.h"; sourceTree = "<group>"; };
+		78F9BF9A18F938460044B82E /* UIImage+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extentions.m"; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,6 +166,8 @@
 				78F9BF5018F90DEB0044B82E /* NSMutableDictionary+SponsorPay.m */,
 				78F9BF5118F90DEB0044B82E /* NSString+Extentions.h */,
 				78F9BF5218F90DEB0044B82E /* NSString+Extentions.m */,
+				78F9BF9918F938460044B82E /* UIImage+Extentions.h */,
+				78F9BF9A18F938460044B82E /* UIImage+Extentions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				78F9BF7A18F90DEB0044B82E /* NSString+Extentions.m in Sources */,
 				78F9BF8A18F90DEB0044B82E /* SPConstants.m in Sources */,
 				78F9BF8518F90DEB0044B82E /* SPDetailViewController.m in Sources */,
+				78F9BF9B18F938460044B82E /* UIImage+Extentions.m in Sources */,
 				78F9BF8618F90DEB0044B82E /* SPOffersViewController.m in Sources */,
 				78F9BF9518F927410044B82E /* SPOfferTableViewCell.m in Sources */,
 				78F9BF7D18F90DEB0044B82E /* main.m in Sources */,

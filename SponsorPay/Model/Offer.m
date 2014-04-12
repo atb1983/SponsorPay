@@ -23,5 +23,6 @@
 @dynamic offerToOfferType;
 @dynamic offerToThumbnail;
 @dynamic timeToPayout;
+@dynamic storeId;
 
 @end

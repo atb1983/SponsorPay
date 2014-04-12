@@ -134,6 +134,7 @@
 													   @"required_actions":	@"requiredActions",
 													   @"link":				@"link",
 													   @"payout":			@"payout",
+													   @"store_id":			@"storeId",
 													   }];
 	
 	offersMapping.identificationAttributes = @[@"offerId"];
@@ -212,6 +213,10 @@
 	[offersDictionary hashDictionaryWithApiKey:apiKey];
 	
 	[self.manager getObject:nil path:kAPIOffersEndPoint parameters:offersDictionary success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+		
+		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
+		NSLog(@"=======:%@",myDic);
+		
 		//		completionBlock(YES, nil);
 	} failure:^(RKObjectRequestOperation *operation, NSError *error) {
 		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
