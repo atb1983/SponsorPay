@@ -13,6 +13,8 @@
 #import "Offer.h"
 #import "Thumbnail.h"
 
+#import <SDWebImageManager.h>
+
 NSString *const kOffersCellIdentifier = @"OffersCellID";
 
 @interface SPOffersViewController () <NSFetchedResultsControllerDelegate, UINavigationControllerDelegate>
@@ -182,6 +184,26 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
     
     [cell.imageView setImageWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
 							placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+	
+	//using the SDWebImage downloader, start downloading the image
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+	[manager downloadWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
+					 options:0
+					progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+					}
+				   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+					   /**
+						We can do this because the block "captures" the
+						necessary variables in its context for reference
+						when it starts execution.
+						**/
+					   NSArray *visibleIndexPaths = [self.tableView indexPathsForVisibleRows];
+					   if ([visibleIndexPaths containsObject:indexPath])
+					   {
+						   // TODO: create a nice fade animation
+						   cell.imageView.image = image;
+					   }
+				   }];
 }
 
 @end

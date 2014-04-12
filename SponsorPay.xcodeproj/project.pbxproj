@@ -150,6 +150,7 @@
 				78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */,
 				78F9BF6C18F90DEB0044B82E /* SponsorPay.xcdatamodeld */,
 				78F9BF4C18F90DEB0044B82E /* Main.storyboard */,
+				78F9BF5518F90DEB0044B82E /* Images.xcassets */,
 				78F9BF8E18F90E4D0044B82E /* Supporting Files */,
 			);
 			path = SponsorPay;
@@ -198,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				78F9BF5318F90DEB0044B82E /* InfoPlist.strings */,
-				78F9BF5518F90DEB0044B82E /* Images.xcassets */,
 				78F9BF5618F90DEB0044B82E /* main.m */,
 				78F9BF6A18F90DEB0044B82E /* SponsorPay-Info.plist */,
 				78F9BF6B18F90DEB0044B82E /* SponsorPay-Prefix.pch */,
