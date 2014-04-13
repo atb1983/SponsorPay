@@ -24,6 +24,7 @@
 - (void)setUp
 {
 	[super setUp];
+	
 	self.view = [[UIView alloc] init];
 	self.image = [UIImage imageNamed:@"Placeholder"];
 }
@@ -45,6 +46,11 @@
 - (void)testUIImageExtentions
 {
 	XCTAssertNotNil([self.image imageWithRoundedCornersRadius:3.0f]);
+}
+
+- (void)testUIImageExtentionsBigNumber
+{
+	XCTAssertNotNil([self.image imageWithRoundedCornersRadius:9999999999.0f]);
 }
 
 - (void)testUIImageExtentionsNil

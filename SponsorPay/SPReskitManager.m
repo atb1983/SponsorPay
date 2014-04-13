@@ -67,7 +67,8 @@
 	
     [[RKObjectManager sharedManager] setAcceptHeaderWithMIMEType:RKMIMETypeJSON];
 	[[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"gzip" value:@"Accept-Encoding"];
-	
+	[[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"Connection" value:@"Keep-Alive"];
+
 	// ------------------
     // Class Descriptions
     // ------------------
@@ -254,8 +255,7 @@
 																							kAPIOffersOsVersion:	deviceVersion
 																							}];
 	
-	// Optional parametres
-	
+	// Optional parametre
 	NSString *pub0 = [KeychainUserPass load:kAPIOffersPub0];
 	
 	if ([pub0 length] > 0)

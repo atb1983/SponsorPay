@@ -22,7 +22,6 @@
 {
     [super setUp];
 	
-	// Create a base dictionary
 	self.baseDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
 																			kAPIOffersAppId:		@"2070",
 																			kAPIOffersUid:			@"uid",

@@ -279,7 +279,7 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 	cell.teaserLabel.text	= offer.teaser;
 	cell.readableLabel.text = [NSString stringWithFormat:NSLocalizedString(@"offers_timetopayout_label", nil), offer.timeToPayout.readable];
     
-    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:offer.offerToThumbnail.hires]
 							placeholderImage:[UIImage imageNamed:@"Placeholder"]];
 	
 	//using the SDWebImage downloader, start downloading the image
