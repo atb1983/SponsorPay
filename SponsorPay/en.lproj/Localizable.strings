@@ -14,6 +14,7 @@
 // OffersVC
 "offers_vc_title" = "Offers";
 "offers_no_data" = "No offers.";
+"offers_timetopayout_label" = "Time to payout: %@";
 
 // ConfigurationVC
 "configuration_vc_title" = "Configuration";

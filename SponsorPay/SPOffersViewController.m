@@ -24,6 +24,7 @@ NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
 @interface SPOffersViewController () <NSFetchedResultsControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 
 @end
 
@@ -36,6 +37,12 @@ NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
 	self.title = NSLocalizedString(@"offers_vc_title", nil);
 	[self.navigationItem setHidesBackButton:YES];
 
+	// Number Formatter
+	self.numberFormatter = [[NSNumberFormatter alloc] init];
+    [self.numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	[self.numberFormatter setCurrencySymbol:@"€ "];
+	[self.numberFormatter setMaximumFractionDigits:0];
+	
 	// RefreshControl
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -227,9 +234,9 @@ NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
 	Offer *offer = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	
     cell.titleLabel.text = offer.title;
-	cell.amountLabel.text = [NSString stringWithFormat:@"€%@", offer.timeToPayout.amount];
+	cell.amountLabel.text = [self.numberFormatter stringFromNumber:offer.timeToPayout.amount];
 	cell.teaserLabel.text	= offer.teaser;
-	cell.readableLabel.text = offer.timeToPayout.readable;
+	cell.readableLabel.text = [NSString stringWithFormat:NSLocalizedString(@"offers_timetopayout_label", nil), offer.timeToPayout.readable];
     
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
 							placeholderImage:[UIImage imageNamed:@"Placeholder"]];
