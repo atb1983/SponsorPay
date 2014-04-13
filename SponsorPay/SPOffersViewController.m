@@ -8,7 +8,6 @@
 
 #import "SPOffersViewController.h"
 #import "SPOfferTableViewCell.h"
-#import "KeychainUserPass.h"
 
 #import "Offer.h"
 #import "Thumbnail.h"
@@ -195,7 +194,7 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
 
 - (void)loadOffers
 {
-	[[SPReskitManager sharedInstance] loadOffersByAppId:[KeychainUserPass load:kAPIOffersAppId] uid:[KeychainUserPass load:kAPIOffersUid] apiKey:[KeychainUserPass load:kAPIKey] pub0:@"" completionBlock:^(RKMappingResult *returnObject, BOOL success, NSError *error) {
+	[[SPReskitManager sharedInstance] loadOffersWithCompletionBlock:^(RKMappingResult *returnObject, BOOL success, NSError *error) {
 		[self.refreshControl endRefreshing];
 	}];
 }

@@ -7,6 +7,7 @@
 //
 
 #import "SPReskitManager.h"
+#import "KeychainUserPass.h"
 
 #import "SPRespose.h"
 #import "SPInformation.h"
@@ -191,7 +192,14 @@
 }
 #pragma mark - WebServices
 
-- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0 completionBlock:(RequestOperationHandler)completionBlock;
+- (void)loadOffersWithCompletionBlock:(RequestOperationHandler)completionBlock
+{
+	[self loadOffersByAppId:[KeychainUserPass load:kAPIOffersAppId] uid:[KeychainUserPass load:kAPIOffersUid] apiKey:[KeychainUserPass load:kAPIKey] pub0:[KeychainUserPass load:kAPIOffersPub0] completionBlock:^(RKMappingResult *returnObject, BOOL success, NSError *error) {
+		completionBlock(returnObject, success, error);
+	}];
+}
+
+- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0 completionBlock:(RequestOperationHandler)completionBlock
 {
 	NSString *advertisingIdentifier = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 	NSString *deviceVersion = [[UIDevice currentDevice] systemVersion];
@@ -209,7 +217,8 @@
 	{
 		[offerTypes appendFormat:[offerTypes isEqualToString:@""] ? @"%@" : @",%@", object.offerTypeId];
 	}
-
+	
+	// Get dictionary
 	NSMutableDictionary *offersDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
 																							  kAPIOffersAppId:		appId,
 																							  kAPIOffersUid:		uid,
@@ -219,7 +228,6 @@
 																							  kAPIOffersTimeStamp:	timeStamp,
 																							  kAPIOffersDevice:		@"phone",
 																							  kAPIOffersOsVersion:	deviceVersion,
-//																							  kAPIOffersPage:		@"1",
 																							  kAPIOffersTypes:		offerTypes,
 																							  kAPIOffersPub0:		pub0
 																							  }];

@@ -20,6 +20,6 @@ typedef void(^RequestOperationHandler)(RKMappingResult *returnObject, BOOL succe
 @property (nonatomic, strong) RKObjectManager *manager;
 @property (nonatomic, strong) RKManagedObjectStore *managedObjectStore;
 
-- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0 completionBlock:(RequestOperationHandler)completionBlock;
+- (void)loadOffersWithCompletionBlock:(RequestOperationHandler)completionBlock;
 
 @end
