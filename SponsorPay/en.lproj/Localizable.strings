@@ -19,6 +19,8 @@
 "configuration_apikey_textfield_placeholder" = "Insert here your api key";
 "configuration_appid_label" = "App Id:";
 "configuration_appid_textfield_placeholder" = "Insert here your app id";
+"configuration_pub0_label" = "Pub0:";
+"configuration_pub0_textfield_placeholder" = "Insert here your pub0";
 "configuration_filters_label" = "Filters:";
 "configuration_changefilters_button" = "Change Filters";
 "configuration_next_button" = "Next";

@@ -26,6 +26,11 @@ extern NSString* const kAPIOffersTimeStamp;
 extern NSString* const kAPIOffersHashKey;
 extern NSString* const kAPIOffersOsVersion;
 extern NSString* const kAPIOffersPage;
+extern NSString* const kAPIOffersTypes;
+
+// Filter Offers VC
+extern NSString *const kFilterOffersCellIdentifier;
+extern NSString *const kUserDefaultsFilters;
 
 // Entities
 extern NSString* const kSPEntityOffer;

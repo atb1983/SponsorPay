@@ -28,6 +28,10 @@ NSString* const kAPIOffersOsVersion		=	@"os_version";
 NSString* const kAPIOffersPage			=	@"page";
 NSString* const kAPIOffersTypes			=	@"offer_types";
 
+// Filter Offers VC
+NSString *const kFilterOffersCellIdentifier = @"OffersCellID";
+NSString *const kUserDefaultsFilters		= @"SPFilters";
+
 // Entities
 NSString* const kSPEntityOffer			=	@"Offer";
 NSString* const kSPEntityOfferType		=	@"OfferType";

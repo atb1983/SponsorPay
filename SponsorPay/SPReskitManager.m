@@ -10,6 +10,7 @@
 
 #import "SPRespose.h"
 #import "SPInformation.h"
+#import "_OfferType.h"
 
 #import "NSString+Extentions.h"
 #import "NSMutableDictionary+SponsorPay.h"
@@ -197,6 +198,18 @@
 	NSString *timeStamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
 	NSString *languageCode = [[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] uppercaseString];
 	
+	// Offer Types
+	NSData *filtersEncoded = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsFilters];
+	NSArray *filters = [NSKeyedUnarchiver unarchiveObjectWithData: filtersEncoded];
+	NSArray *filtersSelected = [filters filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"selected = YES"]];
+	
+	NSMutableString *offerTypes = [[NSMutableString alloc] init];
+	
+	for (_OfferType *object in filtersSelected)
+	{
+		[offerTypes appendFormat:[offerTypes isEqualToString:@""] ? @"%@" : @",%@", object.offerTypeId];
+	}
+
 	NSMutableDictionary *offersDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
 																							  kAPIOffersAppId:		appId,
 																							  kAPIOffersUid:		uid,
@@ -206,7 +219,8 @@
 																							  kAPIOffersTimeStamp:	timeStamp,
 																							  kAPIOffersDevice:		@"phone",
 																							  kAPIOffersOsVersion:	deviceVersion,
-																							  kAPIOffersPage:		@"1",
+//																							  kAPIOffersPage:		@"1",
+																							  kAPIOffersTypes:		offerTypes,
 																							  kAPIOffersPub0:		pub0
 																							  }];
 	

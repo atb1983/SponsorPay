@@ -9,9 +9,6 @@
 #import "SPFilterOffersTableViewController.h"
 #import "_OfferType.h"
 
-NSString *const kFilterOffersCellIdentifier = @"OffersCellID";
-NSString *const kUserDefaultsFilters = @"SPFilters";
-
 @interface SPFilterOffersTableViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *filters;

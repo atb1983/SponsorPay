@@ -61,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNo-gN-5aw">
-                                <rect key="frame" x="20" y="251" width="280" height="30"/>
+                                <rect key="frame" x="20" y="295" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="6kU-2y-3E1"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcT-bR-tal">
-                                <rect key="frame" x="0.0" y="64" width="320" height="184"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert here your user id" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dNw-4C-KJA">
@@ -113,7 +113,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert here your API Key" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R54-JE-8IU">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert here your API Key" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R54-JE-8IU">
                                         <rect key="frame" x="101" y="58" width="208" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -123,13 +123,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filters:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-1n-Jmi">
-                                        <rect key="frame" x="20" y="140" width="73" height="21"/>
+                                        <rect key="frame" x="20" y="176" width="73" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90j-f3-x97">
-                                        <rect key="frame" x="101" y="136" width="208" height="30"/>
+                                        <rect key="frame" x="101" y="172" width="208" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Change Filters">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,9 +138,24 @@
                                             <action selector="showFilterOffers:" destination="QXg-Ya-tPB" eventType="touchUpInside" id="XSS-F3-dwy"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert here your Pub0" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rgp-jO-0u1">
+                                        <rect key="frame" x="101" y="134" width="208" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="QXg-Ya-tPB" id="JWD-u2-Vcm"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pub0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pec-Tn-4Zu">
+                                        <rect key="frame" x="20" y="138" width="73" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="184" id="W2W-sC-6kr"/>
+                                    <constraint firstAttribute="height" constant="212" id="W2W-sC-6kr"/>
                                     <constraint firstAttribute="width" constant="320" id="lrU-pI-VF9"/>
                                 </constraints>
                             </scrollView>
@@ -150,7 +165,7 @@
                             <constraint firstAttribute="trailing" secondItem="XcT-bR-tal" secondAttribute="trailing" id="Fq2-DT-D7A"/>
                             <constraint firstItem="XcT-bR-tal" firstAttribute="top" secondItem="Mcj-ot-idv" secondAttribute="bottom" id="SOi-Y2-03e"/>
                             <constraint firstItem="XcT-bR-tal" firstAttribute="centerX" secondItem="sNo-gN-5aw" secondAttribute="centerX" id="hnT-bH-aGd"/>
-                            <constraint firstItem="sNo-gN-5aw" firstAttribute="top" secondItem="XcT-bR-tal" secondAttribute="bottom" constant="3" id="lgl-Rm-LFL"/>
+                            <constraint firstItem="sNo-gN-5aw" firstAttribute="top" secondItem="XcT-bR-tal" secondAttribute="bottom" constant="19" id="lgl-Rm-LFL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Configuration" id="bsC-R0-4fB"/>
@@ -162,6 +177,8 @@
                         <outlet property="changeFiltersButton" destination="90j-f3-x97" id="8HV-0X-QsF"/>
                         <outlet property="filtersLabel" destination="ktN-1n-Jmi" id="r8R-jE-dgf"/>
                         <outlet property="nextButton" destination="sNo-gN-5aw" id="tpN-Yq-kDW"/>
+                        <outlet property="pub0Label" destination="Pec-Tn-4Zu" id="iEO-Jl-Aoq"/>
+                        <outlet property="pub0Textfield" destination="rgp-jO-0u1" id="Ryo-DH-skm"/>
                         <outlet property="scrollView" destination="XcT-bR-tal" id="Sr0-MR-auV"/>
                         <outlet property="scrollViewHeightConstraint" destination="W2W-sC-6kr" id="xim-oW-bPo"/>
                         <outlet property="uidLabel" destination="E71-jw-kL6" id="4Oz-VK-hDi"/>

@@ -23,6 +23,9 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 @property (weak, nonatomic) IBOutlet UITextField *uidTextField;
 @property (weak, nonatomic) IBOutlet UITextField *apiKeyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *appIdTextField;
+@property (weak, nonatomic) IBOutlet UILabel *pub0Label;
+@property (weak, nonatomic) IBOutlet UITextField *pub0Textfield;
+
 @property (weak, nonatomic) IBOutlet UIButton *changeFiltersButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeightConstraint;
@@ -60,6 +63,10 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
         [self.appIdTextField becomeFirstResponder];
 	}
 	else if (textField == self.appIdTextField)
+	{
+		[self.pub0Textfield becomeFirstResponder];
+	}
+	else if (textField == self.pub0Textfield)
 	{
 		[self.changeFiltersButton sendActionsForControlEvents: UIControlEventTouchUpInside];
 	}
@@ -143,6 +150,9 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	
 	[self.appIdLabel setText:NSLocalizedString(@"configuration_appid_label", nil)];
 	[self.appIdTextField setPlaceholder:NSLocalizedString(@"configuration_appid_textfield_placeholder", nil)];
+
+	[self.pub0Label setText:NSLocalizedString(@"configuration_pub0_label", nil)];
+	[self.pub0Textfield setPlaceholder:NSLocalizedString(@"configuration_pub0_textfield_placeholder", nil)];
 	
 	[self.filtersLabel setText:NSLocalizedString(@"configuration_filters_label", nil)];
 	[self.changeFiltersButton setTitle:NSLocalizedString(@"configuration_changefilters_button", nil) forState:UIControlStateNormal];
@@ -158,11 +168,13 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
     self.uidTextField.textColor = defaultBlue;
     self.apiKeyTextField.textColor = defaultBlue;
     self.appIdTextField.textColor = defaultBlue;
+	self.pub0Textfield.textColor = defaultBlue;
 	
 	// Borders
 	[self.uidTextField applyBorderWithColor:defaultBlue];
     [self.apiKeyTextField applyBorderWithColor:defaultBlue];
 	[self.appIdTextField applyBorderWithColor:defaultBlue];
+	[self.pub0Textfield applyBorderWithColor:defaultBlue];
     [self.nextButton applyBorderWithColor:defaultBlue];
 }
 
@@ -211,6 +223,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	self.uidTextField.text = [KeychainUserPass load:kAPIOffersUid];
 	self.apiKeyTextField.text = [KeychainUserPass load:kAPIKey];
 	self.appIdTextField.text = [KeychainUserPass load:kAPIOffersAppId];
+	self.pub0Textfield.text = [KeychainUserPass load:kAPIOffersPub0];
 }
 
 /**
@@ -221,6 +234,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	[KeychainUserPass save:kAPIOffersUid data:self.uidTextField.text];
 	[KeychainUserPass save:kAPIKey data:self.apiKeyTextField.text];
 	[KeychainUserPass save:kAPIOffersAppId data:self.appIdTextField.text];
+	[KeychainUserPass save:kAPIOffersPub0 data:self.pub0Textfield.text];
 }
 
 /**
