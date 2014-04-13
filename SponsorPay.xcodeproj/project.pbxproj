@@ -44,7 +44,8 @@
 		78F9BFE918FADD560044B82E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA26B18F867420003BB3A /* Foundation.framework */; };
 		78F9BFEA18FADD560044B82E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA26F18F867420003BB3A /* UIKit.framework */; };
 		78F9BFF018FADD560044B82E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78F9BFEE18FADD560044B82E /* InfoPlist.strings */; };
-		78F9BFF218FADD560044B82E /* SponsorPay_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFF118FADD560044B82E /* SponsorPay_Tests.m */; };
+		78F9BFFD18FADE160044B82E /* SPCategories_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFFC18FADE160044B82E /* SPCategories_Tests.m */; };
+		78F9BFFF18FAE50D0044B82E /* SPNSMutableDictionarySponsorPay_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFFE18FAE50D0044B82E /* SPNSMutableDictionarySponsorPay_Tests.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -121,8 +122,9 @@
 		78F9BFE718FADD560044B82E /* SponsorPay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SponsorPay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F9BFED18FADD560044B82E /* SponsorPay Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SponsorPay Tests-Info.plist"; sourceTree = "<group>"; };
 		78F9BFEF18FADD560044B82E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		78F9BFF118FADD560044B82E /* SponsorPay_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SponsorPay_Tests.m; sourceTree = "<group>"; };
 		78F9BFF318FADD560044B82E /* SponsorPay Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SponsorPay Tests-Prefix.pch"; sourceTree = "<group>"; };
+		78F9BFFC18FADE160044B82E /* SPCategories_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCategories_Tests.m; sourceTree = "<group>"; };
+		78F9BFFE18FAE50D0044B82E /* SPNSMutableDictionarySponsorPay_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNSMutableDictionarySponsorPay_Tests.m; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -305,8 +307,9 @@
 		78F9BFEB18FADD560044B82E /* SponsorPay Tests */ = {
 			isa = PBXGroup;
 			children = (
-				78F9BFF118FADD560044B82E /* SponsorPay_Tests.m */,
 				78F9BFEC18FADD560044B82E /* Supporting Files */,
+				78F9BFFC18FADE160044B82E /* SPCategories_Tests.m */,
+				78F9BFFE18FAE50D0044B82E /* SPNSMutableDictionarySponsorPay_Tests.m */,
 			);
 			path = "SponsorPay Tests";
 			sourceTree = "<group>";
@@ -485,7 +488,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F9BFF218FADD560044B82E /* SponsorPay_Tests.m in Sources */,
+				78F9BFFF18FAE50D0044B82E /* SPNSMutableDictionarySponsorPay_Tests.m in Sources */,
+				78F9BFFD18FADE160044B82E /* SPCategories_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

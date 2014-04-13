@@ -10,7 +10,7 @@
 
 @implementation UIImage (Extentions)
 
-- (UIImage*)imageWithRoundedCornersRadius:(float)radius
+- (UIImage *)imageWithRoundedCornersRadius:(float)radius
 {
 	// Begin a new image that will be the new image with the rounded corners
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);

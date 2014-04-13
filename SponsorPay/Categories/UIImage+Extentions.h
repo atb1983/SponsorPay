@@ -10,6 +10,6 @@
 
 @interface UIImage (Extentions)
 
-- (UIImage*)imageWithRoundedCornersRadius:(float)radius;
+- (UIImage *)imageWithRoundedCornersRadius:(float)radius;
 
 @end
