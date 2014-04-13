@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #include <RestKit/RestKit.h>
 
+typedef void(^RequestOperationHandler)(RKMappingResult *returnObject, BOOL success, NSError *error);
+
 @interface SPReskitManager : NSObject
 
 // Singleton
@@ -18,6 +20,6 @@
 @property (nonatomic, strong) RKObjectManager *manager;
 @property (nonatomic, strong) RKManagedObjectStore *managedObjectStore;
 
-- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0;
+- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0 completionBlock:(RequestOperationHandler)completionBlock;
 
 @end

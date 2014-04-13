@@ -190,7 +190,7 @@
 }
 #pragma mark - WebServices
 
-- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0
+- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0 completionBlock:(RequestOperationHandler)completionBlock;
 {
 	NSString *advertisingIdentifier = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 	NSString *deviceVersion = [[UIDevice currentDevice] systemVersion];
@@ -217,13 +217,13 @@
 		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
 		NSLog(@"=======:%@",myDic);
 		
-		//		completionBlock(YES, nil);
+		completionBlock(mappingResult, YES, nil);
 	} failure:^(RKObjectRequestOperation *operation, NSError *error) {
 		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
 		NSLog(@"=======:%@",myDic);
 		
 		NSError *errorMessage =  [[error.userInfo objectForKey:RKObjectMapperErrorObjectsKey] firstObject];
-		//		completionBlock(NO, errorMessage);
+		completionBlock(nil, NO, errorMessage);
 	}];
 }
 

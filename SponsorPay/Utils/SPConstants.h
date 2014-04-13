@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Alex Franco. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double)568) < DBL_EPSILON)
 
-extern NSString *const kAPIKey;
+extern NSString* const kAPIKey;
+extern NSInteger const kAPIKeyLength;
 extern NSString* const kAPIBaseURL;
 
 // Offers

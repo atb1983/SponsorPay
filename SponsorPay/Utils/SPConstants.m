@@ -8,7 +8,8 @@
 
 #import "SPConstants.h"
 
-NSString* const kAPIKey					=	@"1c915e3b5d42d05136185030892fbb846c278927";  // TODO: obscure it
+NSString* const kAPIKey					=	@"apikey";
+NSInteger const kAPIKeyLength			=	40;
 NSString* const kAPIBaseURL				=	@"http://api.sponsorpay.com";
 
 // Offers
