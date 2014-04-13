@@ -38,6 +38,16 @@
                ReferencedContainer = "container:SponsorPay.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "78F9BFE618FADD560044B82E"
+               BuildableName = "SponsorPay Tests.xctest"
+               BlueprintName = "SponsorPay Tests"
+               ReferencedContainer = "container:SponsorPay.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

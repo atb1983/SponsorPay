@@ -4,25 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SponsorPay.xcscheme</key>
+		<key>Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>787EA26718F867420003BB3A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>787EA29018F867420003BB3A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>78F9BFE618FADD560044B82E</key>
+		<key>78F9BFC918FADCD10044B82E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

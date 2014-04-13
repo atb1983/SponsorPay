@@ -40,8 +40,23 @@
 		78F9BFB518FA4CE70044B82E /* SPFilterOffersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB418FA4CE70044B82E /* SPFilterOffersTableViewController.m */; };
 		78F9BFBA18FA9DF90044B82E /* SPPlaceHolderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB918FA9DF90044B82E /* SPPlaceHolderTableViewCell.m */; };
 		78F9BFBD18FAB4980044B82E /* SPError.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFBC18FAB4980044B82E /* SPError.m */; };
+		78F9BFE818FADD560044B82E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA29218F867420003BB3A /* XCTest.framework */; };
+		78F9BFE918FADD560044B82E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA26B18F867420003BB3A /* Foundation.framework */; };
+		78F9BFEA18FADD560044B82E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA26F18F867420003BB3A /* UIKit.framework */; };
+		78F9BFF018FADD560044B82E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78F9BFEE18FADD560044B82E /* InfoPlist.strings */; };
+		78F9BFF218FADD560044B82E /* SponsorPay_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFF118FADD560044B82E /* SponsorPay_Tests.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		78F9BFF418FADD560044B82E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 787EA26018F867410003BB3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 787EA26718F867420003BB3A;
+			remoteInfo = SponsorPay;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		779C70F10FA240D8887D4954 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -103,6 +118,11 @@
 		78F9BFB918FA9DF90044B82E /* SPPlaceHolderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPlaceHolderTableViewCell.m; sourceTree = "<group>"; };
 		78F9BFBB18FAB4980044B82E /* SPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPError.h; sourceTree = "<group>"; };
 		78F9BFBC18FAB4980044B82E /* SPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPError.m; sourceTree = "<group>"; };
+		78F9BFE718FADD560044B82E /* SponsorPay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SponsorPay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78F9BFED18FADD560044B82E /* SponsorPay Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SponsorPay Tests-Info.plist"; sourceTree = "<group>"; };
+		78F9BFEF18FADD560044B82E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78F9BFF118FADD560044B82E /* SponsorPay_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SponsorPay_Tests.m; sourceTree = "<group>"; };
+		78F9BFF318FADD560044B82E /* SponsorPay Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SponsorPay Tests-Prefix.pch"; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +141,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78F9BFE418FADD560044B82E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78F9BFE818FADD560044B82E /* XCTest.framework in Frameworks */,
+				78F9BFEA18FADD560044B82E /* UIKit.framework in Frameworks */,
+				78F9BFE918FADD560044B82E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -128,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				78F9BF4B18F90DEB0044B82E /* SponsorPay */,
+				78F9BFEB18FADD560044B82E /* SponsorPay Tests */,
 				787EA26A18F867420003BB3A /* Frameworks */,
 				787EA26918F867420003BB3A /* Products */,
 				779C70F10FA240D8887D4954 /* Pods.xcconfig */,
@@ -138,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				787EA26818F867420003BB3A /* SponsorPay.app */,
+				78F9BFE718FADD560044B82E /* SponsorPay Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,6 +302,25 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		78F9BFEB18FADD560044B82E /* SponsorPay Tests */ = {
+			isa = PBXGroup;
+			children = (
+				78F9BFF118FADD560044B82E /* SponsorPay_Tests.m */,
+				78F9BFEC18FADD560044B82E /* Supporting Files */,
+			);
+			path = "SponsorPay Tests";
+			sourceTree = "<group>";
+		};
+		78F9BFEC18FADD560044B82E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				78F9BFED18FADD560044B82E /* SponsorPay Tests-Info.plist */,
+				78F9BFEE18FADD560044B82E /* InfoPlist.strings */,
+				78F9BFF318FADD560044B82E /* SponsorPay Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +343,24 @@
 			productReference = 787EA26818F867420003BB3A /* SponsorPay.app */;
 			productType = "com.apple.product-type.application";
 		};
+		78F9BFE618FADD560044B82E /* SponsorPay Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78F9BFF618FADD560044B82E /* Build configuration list for PBXNativeTarget "SponsorPay Tests" */;
+			buildPhases = (
+				78F9BFE318FADD560044B82E /* Sources */,
+				78F9BFE418FADD560044B82E /* Frameworks */,
+				78F9BFE518FADD560044B82E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78F9BFF518FADD560044B82E /* PBXTargetDependency */,
+			);
+			name = "SponsorPay Tests";
+			productName = "SponsorPay Tests";
+			productReference = 78F9BFE718FADD560044B82E /* SponsorPay Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -301,6 +370,11 @@
 				CLASSPREFIX = SP;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Alex Franco";
+				TargetAttributes = {
+					78F9BFE618FADD560044B82E = {
+						TestTargetID = 787EA26718F867420003BB3A;
+					};
+				};
 			};
 			buildConfigurationList = 787EA26318F867410003BB3A /* Build configuration list for PBXProject "SponsorPay" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -316,6 +390,7 @@
 			projectRoot = "";
 			targets = (
 				787EA26718F867420003BB3A /* SponsorPay */,
+				78F9BFE618FADD560044B82E /* SponsorPay Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,6 +404,14 @@
 				78F9BF9E18F942BF0044B82E /* Localizable.strings in Resources */,
 				78F9BF7818F90DEB0044B82E /* Main.storyboard in Resources */,
 				78F9BF7B18F90DEB0044B82E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78F9BFE518FADD560044B82E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78F9BFF018FADD560044B82E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +481,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78F9BFE318FADD560044B82E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78F9BFF218FADD560044B82E /* SponsorPay_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		78F9BFF518FADD560044B82E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 787EA26718F867420003BB3A /* SponsorPay */;
+			targetProxy = 78F9BFF418FADD560044B82E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		78F9BF4C18F90DEB0044B82E /* Main.storyboard */ = {
@@ -423,6 +522,14 @@
 				78F9BFB718FA67050044B82E /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		78F9BFEE18FADD560044B82E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78F9BFEF18FADD560044B82E /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -526,6 +633,46 @@
 			};
 			name = Release;
 		};
+		78F9BFF718FADD560044B82E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SponsorPay.app/SponsorPay";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SponsorPay Tests/SponsorPay Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SponsorPay Tests/SponsorPay Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		78F9BFF818FADD560044B82E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SponsorPay.app/SponsorPay";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SponsorPay Tests/SponsorPay Tests-Prefix.pch";
+				INFOPLIST_FILE = "SponsorPay Tests/SponsorPay Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -546,6 +693,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		78F9BFF618FADD560044B82E /* Build configuration list for PBXNativeTarget "SponsorPay Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78F9BFF718FADD560044B82E /* Debug */,
+				78F9BFF818FADD560044B82E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
