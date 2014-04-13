@@ -84,6 +84,26 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	}
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+	BOOL result = YES;
+	
+	// the textfield AppId is only for numbers
+	if (textField == self.appIdTextField)
+	{
+		NSError *error;
+		NSRegularExpression *numbersOnly = [NSRegularExpression regularExpressionWithPattern:@"[0-9]+" options:NSRegularExpressionCaseInsensitive error:&error];
+		NSInteger numberOfMatches = [numbersOnly numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
+		
+		if (numberOfMatches != 1 && string.length != 0)
+		{
+			result = NO;
+		}
+	}
+	
+	return result;
+}
+
 #pragma mark - Actions
 
 - (IBAction)showFilterOffers:(id)sender
@@ -96,9 +116,23 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 {
 	if ([self validateFields])
 	{
-		[self saveData];
+		NSString *previousKey = [KeychainUserPass load:kAPIKey];
+		
+		// if previousKey is not empty and it's different to new apikey, we erase coredata.
+		if ([previousKey length] > 0 && ![previousKey isEqualToString:self.apiKeyTextField.text])
+		{
+			[[SPReskitManager sharedInstance] cleanupCoreData:^(BOOL finished) {
+				[self saveData];
+				[self performSegueWithIdentifier:kSegueGoToOffersViewController sender:nil];
+			}];
+		}
+		else
+		{
+			[self saveData];
+			[self performSegueWithIdentifier:kSegueGoToOffersViewController sender:nil];
+		}
+		
 		[self hideKeyboard];
-		[self performSegueWithIdentifier:kSegueGoToOffersViewController sender:nil];
 	}
 }
 
@@ -150,7 +184,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	
 	[self.appIdLabel setText:NSLocalizedString(@"configuration_appid_label", nil)];
 	[self.appIdTextField setPlaceholder:NSLocalizedString(@"configuration_appid_textfield_placeholder", nil)];
-
+	
 	[self.pub0Label setText:NSLocalizedString(@"configuration_pub0_label", nil)];
 	[self.pub0Textfield setPlaceholder:NSLocalizedString(@"configuration_pub0_textfield_placeholder", nil)];
 	
@@ -179,7 +213,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 }
 
 /**
- *  ValidateFields 
+ *  ValidateFields
  *	Check all the textfields in order to make sure that they are correct
  *
  *  @return YES when all fields are validated
@@ -232,9 +266,9 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 - (void)saveData
 {
 	[KeychainUserPass save:kAPIOffersUid data:self.uidTextField.text];
-	[KeychainUserPass save:kAPIKey data:self.apiKeyTextField.text];
 	[KeychainUserPass save:kAPIOffersAppId data:self.appIdTextField.text];
 	[KeychainUserPass save:kAPIOffersPub0 data:self.pub0Textfield.text];
+	[KeychainUserPass save:kAPIKey data:self.apiKeyTextField.text];
 }
 
 /**
