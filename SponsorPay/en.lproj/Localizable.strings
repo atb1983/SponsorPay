@@ -11,6 +11,10 @@
 "error" = "Error";
 "ok" = "Ok";
 
+// OffersVC
+"offers_vc_title" = "Offers";
+"offers_no_data" = "No offers.";
+
 // ConfigurationVC
 "configuration_vc_title" = "Configuration";
 "configuration_uid_label" = "UId:";

@@ -8,6 +8,7 @@
 
 #import "SPOffersViewController.h"
 #import "SPOfferTableViewCell.h"
+#import "SPPlaceHolderTableViewCell.h"
 
 #import "Offer.h"
 #import "Thumbnail.h"
@@ -17,7 +18,8 @@
 
 #import <SDWebImageManager.h>
 
-NSString *const kOffersCellIdentifier = @"OffersCellID";
+NSString *const kOffersCellIdentifier		= @"OffersCellID";
+NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
 
 @interface SPOffersViewController () <NSFetchedResultsControllerDelegate, UINavigationControllerDelegate>
 
@@ -31,6 +33,7 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
 {
     [super viewDidLoad];
 
+	self.title = NSLocalizedString(@"offers_vc_title", nil);
 	[self.navigationItem setHidesBackButton:YES];
 
 	// RefreshControl
@@ -94,21 +97,41 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
     }
 	else
 	{
-        return 0;
+        return 1;
 	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SPOfferTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kOffersCellIdentifier];
-	[self configureCell:cell atIndexPath:indexPath];
+	UITableViewCell *cell;
+	
+	if ([[self.fetchedResultsController sections] count] == 0)
+	{
+		// No results
+		cell = [tableView dequeueReusableCellWithIdentifier:kPlaceHolderCellIdentifier];
+		SPPlaceHolderTableViewCell *placeHolderCell = (SPPlaceHolderTableViewCell *)cell;
+		placeHolderCell.titleLabel.text = NSLocalizedString(@"offers_no_data", nil);
+	}
+	else
+	{
+		cell = [tableView dequeueReusableCellWithIdentifier:kOffersCellIdentifier];
+		[self configureCell:(SPOfferTableViewCell *)cell atIndexPath:indexPath];
+	}
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	if ([[self.fetchedResultsController sections] count] > 0)
+	{
+        return 114;
+    }
+	else
+	{
+        return 60;
+	}
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
