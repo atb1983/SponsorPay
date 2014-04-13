@@ -1,0 +1,32 @@
+/* 
+  Localization.strings
+  SponsorPay
+
+  Created by Alex Núñez on 12/04/14.
+  Copyright (c) 2014 Alex Franco. All rights reserved.
+*/
+
+// Common
+
+"error" = "Error";
+"ok" = "Ok";
+
+// ConfigurationVC
+"configuration_vc_title" = "Configuration";
+"configuration_uid_label" = "UId:";
+"configuration_uid_textfield_placeholder" = "Insert here your uid";
+"configuration_apikey_label" = "Api Key:";
+"configuration_apikey_textfield_placeholder" = "Insert here your api key";
+"configuration_appid_label" = "App Id:";
+"configuration_appid_textfield_placeholder" = "Insert here your app id";
+"configuration_filters_label" = "Filters:";
+"configuration_changefilters_button" = "Change Filters";
+"configuration_next_button" = "Next";
+
+"configuration_uid_empty" = "Please enter a valid uid";
+"configuration_apikey_empty" = "Please enter a valid api key";
+"configuration_appid_empty" = "Please enter a valid app id";
+
+// FilterOffersVC
+"filteroffers_vc_title" = "Filters";
+"filteroffers_info" = "Tap into the cell to select or unselect your filters.";

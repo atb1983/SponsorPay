@@ -7,8 +7,8 @@
 //
 
 #import "SPOffersViewController.h"
-#import "SPDetailViewController.h"
 #import "SPOfferTableViewCell.h"
+#import "KeychainUserPass.h"
 
 #import "Offer.h"
 #import "Thumbnail.h"
@@ -32,9 +32,11 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
 {
     [super viewDidLoad];
 
+	[self.navigationItem setHidesBackButton:YES];
+
 	// RefreshControl
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refreshTableView:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     
 	[self.navigationController setDelegate:self];
@@ -167,11 +169,35 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
     [self.tableView endUpdates];
 }
 
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+	CGFloat contentOffsetY = scrollView.contentOffset.y;
+	CGFloat contentHeight = scrollView.contentSize.height;
+	CGFloat boundsHeight = scrollView.bounds.size.height;
+	
+	if ((contentOffsetY + boundsHeight) >= contentHeight)
+	{
+		[self loadOffers];
+	}
+}
+
+#pragma mark - Actions
+
+- (void)refresh:(UIEvent *)event
+{
+	[self loadOffers];
+}
+
 #pragma mark - Helpers
 
 - (void)loadOffers
 {
-	[[SPReskitManager sharedInstance] loadOffersByAppId:@"2070" uid:@"Spiderman" apiKey:kAPIKey pub0:@"112"];
+	[[SPReskitManager sharedInstance] loadOffersByAppId:[KeychainUserPass load:kAPIOffersAppId] uid:[KeychainUserPass load:kAPIOffersUid] apiKey:[KeychainUserPass load:kAPIKey] pub0:@"" completionBlock:^(RKMappingResult *returnObject, BOOL success, NSError *error) {
+		[self.refreshControl endRefreshing];
+	}];
 }
 
 - (void)configureCell:(SPOfferTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -181,13 +207,14 @@ NSString *const kOffersCellIdentifier = @"OffersCellID";
     cell.titleLabel.text = offer.title;
 	cell.amountLabel.text = [NSString stringWithFormat:@"€%@", offer.timeToPayout.amount];
 	cell.teaserLabel.text	= offer.teaser;
+	cell.readableLabel.text = offer.timeToPayout.readable;
     
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
 							placeholderImage:[UIImage imageNamed:@"Placeholder"]];
 	
 	//using the SDWebImage downloader, start downloading the image
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-	[manager downloadWithURL:[NSURL URLWithString:offer.offerToThumbnail.hires]
+	[manager downloadWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
 					 options:0
 					progress:^(NSInteger receivedSize, NSInteger expectedSize) {
 					}

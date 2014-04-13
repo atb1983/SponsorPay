@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teaserLabel;
+@property (weak, nonatomic) IBOutlet UILabel *readableLabel;
 @end
