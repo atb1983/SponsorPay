@@ -26,13 +26,18 @@
 		78F9BF8218F90DEB0044B82E /* Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6118F90DEB0044B82E /* Thumbnail.m */; };
 		78F9BF8318F90DEB0044B82E /* TimeToPayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6318F90DEB0044B82E /* TimeToPayout.m */; };
 		78F9BF8418F90DEB0044B82E /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6518F90DEB0044B82E /* SPAppDelegate.m */; };
-		78F9BF8518F90DEB0044B82E /* SPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6718F90DEB0044B82E /* SPDetailViewController.m */; };
 		78F9BF8618F90DEB0044B82E /* SPOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */; };
 		78F9BF8918F90DEB0044B82E /* SPReskitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6F18F90DEB0044B82E /* SPReskitManager.m */; };
 		78F9BF8A18F90DEB0044B82E /* SPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF7218F90DEB0044B82E /* SPConstants.m */; };
 		78F9BF8F18F90F0B0044B82E /* SponsorPay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF6C18F90DEB0044B82E /* SponsorPay.xcdatamodeld */; };
 		78F9BF9518F927410044B82E /* SPOfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */; };
 		78F9BF9B18F938460044B82E /* UIImage+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BF9A18F938460044B82E /* UIImage+Extentions.m */; };
+		78F9BF9E18F942BF0044B82E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78F9BFA018F942BF0044B82E /* Localizable.strings */; };
+		78F9BFA318F990000044B82E /* SPConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFA218F990000044B82E /* SPConfigurationViewController.m */; };
+		78F9BFA618F992580044B82E /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFA518F992580044B82E /* UIView+Border.m */; };
+		78F9BFAF18F9F3F00044B82E /* KeychainUserPass.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFAE18F9F3F00044B82E /* KeychainUserPass.m */; };
+		78F9BFB218F9FBD10044B82E /* _OfferType.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB118F9FBD10044B82E /* _OfferType.m */; };
+		78F9BFB518FA4CE70044B82E /* SPFilterOffersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB418FA4CE70044B82E /* SPFilterOffersTableViewController.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +73,6 @@
 		78F9BF6318F90DEB0044B82E /* TimeToPayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeToPayout.m; sourceTree = "<group>"; };
 		78F9BF6418F90DEB0044B82E /* SPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
 		78F9BF6518F90DEB0044B82E /* SPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
-		78F9BF6618F90DEB0044B82E /* SPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDetailViewController.h; sourceTree = "<group>"; };
-		78F9BF6718F90DEB0044B82E /* SPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDetailViewController.m; sourceTree = "<group>"; };
 		78F9BF6818F90DEB0044B82E /* SPOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPOffersViewController.h; sourceTree = "<group>"; };
 		78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPOffersViewController.m; sourceTree = "<group>"; };
 		78F9BF6A18F90DEB0044B82E /* SponsorPay-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SponsorPay-Info.plist"; sourceTree = "<group>"; };
@@ -83,6 +86,17 @@
 		78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOfferTableViewCell.m; path = Views/SPOfferTableViewCell.m; sourceTree = "<group>"; };
 		78F9BF9918F938460044B82E /* UIImage+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extentions.h"; sourceTree = "<group>"; };
 		78F9BF9A18F938460044B82E /* UIImage+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extentions.m"; sourceTree = "<group>"; };
+		78F9BFA118F990000044B82E /* SPConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPConfigurationViewController.h; sourceTree = "<group>"; };
+		78F9BFA218F990000044B82E /* SPConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPConfigurationViewController.m; sourceTree = "<group>"; };
+		78F9BFA418F992580044B82E /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
+		78F9BFA518F992580044B82E /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
+		78F9BFAD18F9F3F00044B82E /* KeychainUserPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainUserPass.h; sourceTree = "<group>"; };
+		78F9BFAE18F9F3F00044B82E /* KeychainUserPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainUserPass.m; sourceTree = "<group>"; };
+		78F9BFB018F9FBD10044B82E /* _OfferType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OfferType.h; sourceTree = "<group>"; };
+		78F9BFB118F9FBD10044B82E /* _OfferType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _OfferType.m; sourceTree = "<group>"; };
+		78F9BFB318FA4CE70044B82E /* SPFilterOffersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFilterOffersTableViewController.h; sourceTree = "<group>"; };
+		78F9BFB418FA4CE70044B82E /* SPFilterOffersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFilterOffersTableViewController.m; sourceTree = "<group>"; };
+		78F9BFB718FA67050044B82E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,17 +154,14 @@
 		78F9BF4B18F90DEB0044B82E /* SponsorPay */ = {
 			isa = PBXGroup;
 			children = (
-				78F9BF9218F927140044B82E /* Views */,
-				78F9BF9118F910A00044B82E /* Webservices */,
 				78F9BF4E18F90DEB0044B82E /* Categories */,
 				78F9BF5718F90DEB0044B82E /* Model */,
 				78F9BF7018F90DEB0044B82E /* Utils */,
+				78F9BFB618FA4CED0044B82E /* ViewControllers */,
+				78F9BF9218F927140044B82E /* Views */,
+				78F9BF9118F910A00044B82E /* Webservices */,
 				78F9BF6418F90DEB0044B82E /* SPAppDelegate.h */,
 				78F9BF6518F90DEB0044B82E /* SPAppDelegate.m */,
-				78F9BF6618F90DEB0044B82E /* SPDetailViewController.h */,
-				78F9BF6718F90DEB0044B82E /* SPDetailViewController.m */,
-				78F9BF6818F90DEB0044B82E /* SPOffersViewController.h */,
-				78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */,
 				78F9BF6C18F90DEB0044B82E /* SponsorPay.xcdatamodeld */,
 				78F9BF4C18F90DEB0044B82E /* Main.storyboard */,
 				78F9BF5518F90DEB0044B82E /* Images.xcassets */,
@@ -168,6 +179,8 @@
 				78F9BF5218F90DEB0044B82E /* NSString+Extentions.m */,
 				78F9BF9918F938460044B82E /* UIImage+Extentions.h */,
 				78F9BF9A18F938460044B82E /* UIImage+Extentions.m */,
+				78F9BFA418F992580044B82E /* UIView+Border.h */,
+				78F9BFA518F992580044B82E /* UIView+Border.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -175,6 +188,8 @@
 		78F9BF5718F90DEB0044B82E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				78F9BFB018F9FBD10044B82E /* _OfferType.h */,
+				78F9BFB118F9FBD10044B82E /* _OfferType.m */,
 				78F9BF5818F90DEB0044B82E /* Offer.h */,
 				78F9BF5918F90DEB0044B82E /* Offer.m */,
 				78F9BF5A18F90DEB0044B82E /* OfferType.h */,
@@ -196,6 +211,8 @@
 			children = (
 				78F9BF7118F90DEB0044B82E /* SPConstants.h */,
 				78F9BF7218F90DEB0044B82E /* SPConstants.m */,
+				78F9BFAD18F9F3F00044B82E /* KeychainUserPass.h */,
+				78F9BFAE18F9F3F00044B82E /* KeychainUserPass.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -207,6 +224,7 @@
 				78F9BF5618F90DEB0044B82E /* main.m */,
 				78F9BF6A18F90DEB0044B82E /* SponsorPay-Info.plist */,
 				78F9BF6B18F90DEB0044B82E /* SponsorPay-Prefix.pch */,
+				78F9BFA018F942BF0044B82E /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -227,6 +245,19 @@
 				78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		78F9BFB618FA4CED0044B82E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				78F9BF6818F90DEB0044B82E /* SPOffersViewController.h */,
+				78F9BF6918F90DEB0044B82E /* SPOffersViewController.m */,
+				78F9BFA118F990000044B82E /* SPConfigurationViewController.h */,
+				78F9BFA218F990000044B82E /* SPConfigurationViewController.m */,
+				78F9BFB318FA4CE70044B82E /* SPFilterOffersTableViewController.h */,
+				78F9BFB418FA4CE70044B82E /* SPFilterOffersTableViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78F9BF7C18F90DEB0044B82E /* Images.xcassets in Resources */,
+				78F9BF9E18F942BF0044B82E /* Localizable.strings in Resources */,
 				78F9BF7818F90DEB0044B82E /* Main.storyboard in Resources */,
 				78F9BF7B18F90DEB0044B82E /* InfoPlist.strings in Resources */,
 			);
@@ -336,12 +368,16 @@
 				78F9BF8918F90DEB0044B82E /* SPReskitManager.m in Sources */,
 				78F9BF8218F90DEB0044B82E /* Thumbnail.m in Sources */,
 				78F9BF7A18F90DEB0044B82E /* NSString+Extentions.m in Sources */,
+				78F9BFAF18F9F3F00044B82E /* KeychainUserPass.m in Sources */,
+				78F9BFA618F992580044B82E /* UIView+Border.m in Sources */,
+				78F9BFA318F990000044B82E /* SPConfigurationViewController.m in Sources */,
 				78F9BF8A18F90DEB0044B82E /* SPConstants.m in Sources */,
-				78F9BF8518F90DEB0044B82E /* SPDetailViewController.m in Sources */,
 				78F9BF9B18F938460044B82E /* UIImage+Extentions.m in Sources */,
+				78F9BFB518FA4CE70044B82E /* SPFilterOffersTableViewController.m in Sources */,
 				78F9BF8618F90DEB0044B82E /* SPOffersViewController.m in Sources */,
 				78F9BF9518F927410044B82E /* SPOfferTableViewCell.m in Sources */,
 				78F9BF7D18F90DEB0044B82E /* main.m in Sources */,
+				78F9BFB218F9FBD10044B82E /* _OfferType.m in Sources */,
 				78F9BF8418F90DEB0044B82E /* SPAppDelegate.m in Sources */,
 				78F9BF8018F90DEB0044B82E /* SPInformation.m in Sources */,
 				78F9BF7F18F90DEB0044B82E /* OfferType.m in Sources */,
@@ -367,6 +403,14 @@
 				78F9BF5418F90DEB0044B82E /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		78F9BFA018F942BF0044B82E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78F9BFB718FA67050044B82E /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
