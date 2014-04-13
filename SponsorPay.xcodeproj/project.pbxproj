@@ -48,6 +48,7 @@
 		78F9C00318FB10200044B82E /* SPUIViewCategory_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9C00218FB10200044B82E /* SPUIViewCategory_Tests.m */; };
 		78F9C00518FB102F0044B82E /* SPUIImageCategory_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9C00418FB102F0044B82E /* SPUIImageCategory_Tests.m */; };
 		78F9C00718FB10D60044B82E /* SPNSStringCategory_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9C00618FB10D60044B82E /* SPNSStringCategory_Tests.m */; };
+		78F9C00918FB120C0044B82E /* SPCoredata_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9C00818FB120C0044B82E /* SPCoredata_Tests.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		78F9C00218FB10200044B82E /* SPUIViewCategory_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUIViewCategory_Tests.m; sourceTree = "<group>"; };
 		78F9C00418FB102F0044B82E /* SPUIImageCategory_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUIImageCategory_Tests.m; sourceTree = "<group>"; };
 		78F9C00618FB10D60044B82E /* SPNSStringCategory_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNSStringCategory_Tests.m; sourceTree = "<group>"; };
+		78F9C00818FB120C0044B82E /* SPCoredata_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCoredata_Tests.m; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -316,6 +318,7 @@
 				78F9C00218FB10200044B82E /* SPUIViewCategory_Tests.m */,
 				78F9C00418FB102F0044B82E /* SPUIImageCategory_Tests.m */,
 				78F9C00618FB10D60044B82E /* SPNSStringCategory_Tests.m */,
+				78F9C00818FB120C0044B82E /* SPCoredata_Tests.m */,
 			);
 			path = "SponsorPay Tests";
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F9C00918FB120C0044B82E /* SPCoredata_Tests.m in Sources */,
 				78F9C00518FB102F0044B82E /* SPUIImageCategory_Tests.m in Sources */,
 				78F9C00718FB10D60044B82E /* SPNSStringCategory_Tests.m in Sources */,
 				78F9BFFF18FAE50D0044B82E /* SPNSMutableDictionarySponsorPay_Tests.m in Sources */,
