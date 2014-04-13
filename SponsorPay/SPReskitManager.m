@@ -54,7 +54,7 @@
     NSString *path = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"SponsorPay.sqlite"];
     NSPersistentStore *persistentStore = [self.managedObjectStore addSQLitePersistentStoreAtPath:path fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:&error];
     
-	if (! persistentStore)
+	if (!persistentStore)
 	{
         RKLogError(@"Failed adding persistent store at path '%@': %@", path, error);
     }
@@ -196,17 +196,7 @@
 
 - (void)loadOffersWithCompletionBlock:(RequestOperationHandler)completionBlock
 {
-	[self loadOffersByAppId:[KeychainUserPass load:kAPIOffersAppId] uid:[KeychainUserPass load:kAPIOffersUid] apiKey:[KeychainUserPass load:kAPIKey] pub0:[KeychainUserPass load:kAPIOffersPub0] completionBlock:^(RKMappingResult *returnObject, BOOL success, SPError *error) {
-		completionBlock(returnObject, success, error);
-	}];
-}
-
-- (void)loadOffersByAppId:(NSString *)appId uid:(NSString *)uid apiKey:(NSString *)apiKey pub0:(NSString *)pub0 completionBlock:(RequestOperationHandler)completionBlock
-{
-	NSString *advertisingIdentifier = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-	NSString *deviceVersion = [[UIDevice currentDevice] systemVersion];
-	NSString *timeStamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
-	NSString *languageCode = [[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] uppercaseString];
+	NSMutableDictionary *offersDictionary = [[NSMutableDictionary alloc] initWithDictionary:[self baseDict]];
 	
 	// Offer Types
 	NSData *filtersEncoded = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsFilters];
@@ -220,21 +210,12 @@
 		[offerTypes appendFormat:[offerTypes isEqualToString:@""] ? @"%@" : @",%@", object.offerTypeId];
 	}
 	
-	// Get dictionary
-	NSMutableDictionary *offersDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
-																							  kAPIOffersAppId:		appId,
-																							  kAPIOffersUid:		uid,
-																							  kAPIOffersIp:			@"109.235.143.113",
-																							  kAPIOffersLocale:		languageCode,
-																							  kAPIOffersDeviceId:	advertisingIdentifier,
-																							  kAPIOffersTimeStamp:	timeStamp,
-																							  kAPIOffersDevice:		@"phone",
-																							  kAPIOffersOsVersion:	deviceVersion,
-																							  kAPIOffersTypes:		offerTypes,
-																							  kAPIOffersPub0:		pub0
-																							  }];
+	if ([offerTypes length] > 0)
+	{
+		[offersDictionary setObject:offerTypes forKey:kAPIOffersTypes];
+	}
 	
-	[offersDictionary hashDictionaryWithApiKey:apiKey];
+	[offersDictionary hashDictionaryWithApiKey:[KeychainUserPass load:kAPIKey]];
 	
 	[self.manager getObject:nil path:kAPIOffersEndPoint parameters:offersDictionary success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
 		completionBlock(mappingResult, YES, nil);
@@ -242,6 +223,42 @@
 		id errorMessage = [[error.userInfo objectForKey:RKObjectMapperErrorObjectsKey] firstObject];
 		completionBlock(nil, NO, errorMessage);
 	}];
+}
+
+/**
+ *  Creates a base dictinary for the comunication with SponsorPay
+ *
+ *  @return the base dict filled
+ */
+- (NSMutableDictionary *)baseDict
+{
+	NSString *advertisingIdentifier = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+	NSString *deviceVersion = [[UIDevice currentDevice] systemVersion];
+	NSString *timeStamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
+	NSString *languageCode = [[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] uppercaseString];
+	
+	// Get dictionary
+	NSMutableDictionary *baseDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
+																							kAPIOffersAppId:		[KeychainUserPass load:kAPIOffersAppId],
+																							kAPIOffersUid:			[KeychainUserPass load:kAPIOffersUid],
+																							kAPIOffersIp:			@"109.235.143.113",
+																							kAPIOffersLocale:		languageCode,
+																							kAPIOffersDeviceId:		advertisingIdentifier,
+																							kAPIOffersTimeStamp:	timeStamp,
+																							kAPIOffersDevice:		@"phone",
+																							kAPIOffersOsVersion:	deviceVersion
+																							}];
+	
+	// Optional parametres
+	
+	NSString *pub0 = [KeychainUserPass load:kAPIOffersPub0];
+	
+	if ([pub0 length] > 0)
+	{
+		[baseDictionary setObject:pub0 forKey:kAPIOffersPub0];
+	}
+	
+	return baseDictionary;
 }
 
 @end
