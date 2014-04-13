@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSString *code;
 @property (nonatomic, strong) NSString *message;
-@property (nonatomic, strong) NSString *count;
-@property (nonatomic, strong) NSString *pages;
+@property (nonatomic, strong) NSNumber *count;
+@property (nonatomic, strong) NSNumber *pages;
 
 @end

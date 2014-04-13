@@ -13,6 +13,7 @@
 #import "Offer.h"
 #import "Thumbnail.h"
 #import "TimeToPayout.h"
+#import "SPRespose.h"
 
 #import "UIImage+Extentions.h"
 
@@ -26,7 +27,7 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
-
+@property (nonatomic, strong) SPRespose *response;
 @end
 
 @implementation SPOffersViewController
@@ -52,7 +53,7 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 	[self.navigationController setDelegate:self];
 	
     // Feed
-    [self loadOffers];
+    [self loadOffersWithPage:@1];
 }
 
 #pragma mark - Fetched results controller
@@ -228,19 +229,43 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 
 - (void)refresh:(UIEvent *)event
 {
-	[self loadOffers];
+	// Refresh the first page
+	[self loadOffersWithPage:@1];
 }
 
 #pragma mark - Helpers
 
+/**
+ *  Load offers,  also allows pagination. if we have already a "response" and the count is bigger than pages it means that we can load more information
+ * ATENTION: I coudn't test this properly, I wasn't able to get more than one page for the user : spiderman. I would like to have another use to test in order to make sure that this method is working well.
+ */
 - (void)loadOffers
 {
-	[[SPReskitManager sharedInstance] loadOffersWithCompletionBlock:^(RKMappingResult *returnObject, BOOL success, SPError *error) {
+	if (self.response.count > self.response.pages)
+	{
+		// current page + 1;
+		NSNumber *nextPage = @([self.response.pages intValue] + 1);
+		[self loadOffersWithPage:nextPage];
+	}
+}
+
+/**
+ *  Load offers using an specific page
+ *
+ *  @param page to fetch
+ */
+- (void)loadOffersWithPage:(NSNumber *)page;
+{
+	[[SPReskitManager sharedInstance] loadOffersWithPage:page complationBlock:^(RKMappingResult *returnObject, BOOL success, SPError *error) {
 		[self.refreshControl endRefreshing];
 		
 		if (!success)
 		{
 			[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error", nil) message:error.message delegate:self cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:NSLocalizedString(@"offers_change_configuration",nil), nil] show];
+		}
+		else
+		{
+			self.response = [returnObject.array objectAtIndex:0];
 		}
 	}];
 }

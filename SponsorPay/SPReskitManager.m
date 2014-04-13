@@ -194,9 +194,15 @@
 }
 #pragma mark - WebServices
 
-- (void)loadOffersWithCompletionBlock:(RequestOperationHandler)completionBlock
+- (void)loadOffersWithPage:(NSNumber *)page complationBlock:(RequestOperationHandler)completionBlock
 {
 	NSMutableDictionary *offersDictionary = [[NSMutableDictionary alloc] initWithDictionary:[self baseDict]];
+	
+	// Pages
+	if ([page isEqualToNumber:@1])
+	{
+		[offersDictionary setObject:page forKey:kAPIOffersPage];
+	}
 	
 	// Offer Types
 	NSData *filtersEncoded = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsFilters];
@@ -241,7 +247,6 @@
 	NSMutableDictionary *baseDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
 																							kAPIOffersAppId:		[KeychainUserPass load:kAPIOffersAppId],
 																							kAPIOffersUid:			[KeychainUserPass load:kAPIOffersUid],
-																							kAPIOffersIp:			@"109.235.143.113",
 																							kAPIOffersLocale:		languageCode,
 																							kAPIOffersDeviceId:		advertisingIdentifier,
 																							kAPIOffersTimeStamp:	timeStamp,

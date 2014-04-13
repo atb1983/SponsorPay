@@ -21,6 +21,11 @@ typedef void(^RequestOperationHandler)(RKMappingResult *returnObject, BOOL succe
 @property (nonatomic, strong) RKObjectManager *manager;
 @property (nonatomic, strong) RKManagedObjectStore *managedObjectStore;
 
-- (void)loadOffersWithCompletionBlock:(RequestOperationHandler)completionBlock;
+/**
+ *  Return offers from SponsorPay
+ *
+ *  @param page = pagination
+ */
+- (void)loadOffersWithPage:(NSNumber *)page complationBlock:(RequestOperationHandler)completionBlock;
 
 @end
