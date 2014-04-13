@@ -10,4 +10,6 @@
 
 @interface UIView (Border)
 
+- (void)applyBorderWithColor:(UIColor *)color;
+
 @end
