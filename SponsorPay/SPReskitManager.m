@@ -35,6 +35,34 @@
 	return _sharedClient;
 }
 
+#pragma mark - Helpers
+
+- (void)cleanupCoreData:(void (^)(BOOL finished))completion
+{
+	NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+		[[RKManagedObjectStore defaultStore].persistentStoreManagedObjectContext performBlockAndWait:^{
+			for (NSEntityDescription *entity in [RKManagedObjectStore defaultStore].managedObjectModel)
+			{
+				NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+				[fetchRequest setEntity:entity];
+				[fetchRequest setIncludesSubentities:NO];
+				NSArray *objects = [[RKManagedObjectStore defaultStore].persistentStoreManagedObjectContext executeFetchRequest:fetchRequest error:nil];
+				for (NSManagedObject *managedObject in objects)
+				{
+					[[RKManagedObjectStore defaultStore].persistentStoreManagedObjectContext deleteObject:managedObject];
+				}
+			}
+			
+			[[RKManagedObjectStore defaultStore].persistentStoreManagedObjectContext save:nil];
+		}];
+	}];
+	[operation setCompletionBlock:^{
+		completion(YES);
+	}];
+	[operation start];
+	
+}
+
 #pragma mark - Configuration
 
 - (void)configurateRestKit
@@ -68,7 +96,7 @@
     [[RKObjectManager sharedManager] setAcceptHeaderWithMIMEType:RKMIMETypeJSON];
 	[[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"gzip" value:@"Accept-Encoding"];
 	[[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"Connection" value:@"Keep-Alive"];
-
+	
 	// ------------------
     // Class Descriptions
     // ------------------
@@ -217,11 +245,13 @@
 		[offerTypes appendFormat:[offerTypes isEqualToString:@""] ? @"%@" : @",%@", object.offerTypeId];
 	}
 	
+	// if the string offerType is not empty we add the parameter to our dictionary
 	if ([offerTypes length] > 0)
 	{
 		[offersDictionary setObject:offerTypes forKey:kAPIOffersTypes];
 	}
 	
+	// We must hash the dictionary
 	[offersDictionary hashDictionaryWithApiKey:[KeychainUserPass load:kAPIKey]];
 	
 	[self.manager getObject:nil path:kAPIOffersEndPoint parameters:offersDictionary success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

@@ -22,6 +22,13 @@ typedef void(^RequestOperationHandler)(RKMappingResult *returnObject, BOOL succe
 @property (nonatomic, strong) RKManagedObjectStore *managedObjectStore;
 
 /**
+ *  Delete/Reset all entries in CoreData
+ *
+ *  @param completion return YES when the coredata is cleaned
+ */
+- (void)cleanupCoreData:(void (^)(BOOL finished))completion;
+
+/**
  *  Return offers from SponsorPay
  *
  *  @param page = pagination

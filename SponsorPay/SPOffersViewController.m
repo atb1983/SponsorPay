@@ -102,7 +102,9 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 	if ([[self.fetchedResultsController sections] count] > 0)
 	{
         id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-        return [sectionInfo numberOfObjects];
+		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
+		
+        return numberOfObjects == 0 ? 1 : numberOfObjects;
     }
 	else
 	{
@@ -114,17 +116,24 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 {
 	UITableViewCell *cell;
 	
-	if ([[self.fetchedResultsController sections] count] == 0)
+	if ([[self.fetchedResultsController sections] count] > 0)
 	{
-		// No results
-		cell = [tableView dequeueReusableCellWithIdentifier:kPlaceHolderCellIdentifier];
-		SPPlaceHolderTableViewCell *placeHolderCell = (SPPlaceHolderTableViewCell *)cell;
-		placeHolderCell.titleLabel.text = NSLocalizedString(@"offers_no_data", nil);
-	}
-	else
-	{
-		cell = [tableView dequeueReusableCellWithIdentifier:kOffersCellIdentifier];
-		[self configureCell:(SPOfferTableViewCell *)cell atIndexPath:indexPath];
+		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.row];
+		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
+		
+		if (numberOfObjects == 0)
+		{
+			// No results
+			cell = [tableView dequeueReusableCellWithIdentifier:kPlaceHolderCellIdentifier];
+			SPPlaceHolderTableViewCell *placeHolderCell = (SPPlaceHolderTableViewCell *)cell;
+			placeHolderCell.titleLabel.text = NSLocalizedString(@"offers_no_data", nil);
+		}
+		
+		else
+		{
+			cell = [tableView dequeueReusableCellWithIdentifier:kOffersCellIdentifier];
+			[self configureCell:(SPOfferTableViewCell *)cell atIndexPath:indexPath];
+		}
 	}
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -135,7 +144,10 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 {
 	if ([[self.fetchedResultsController sections] count] > 0)
 	{
-        return 114;
+		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.row];
+		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
+		
+        return numberOfObjects == 0 ? 60 : 114;
     }
 	else
 	{
