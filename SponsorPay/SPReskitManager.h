@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SPError.h"
 #include <RestKit/RestKit.h>
 
-typedef void(^RequestOperationHandler)(RKMappingResult *returnObject, BOOL success, NSError *error);
+typedef void(^RequestOperationHandler)(RKMappingResult *returnObject, BOOL success, SPError *error);
 
 @interface SPReskitManager : NSObject
 

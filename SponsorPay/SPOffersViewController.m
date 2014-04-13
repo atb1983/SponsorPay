@@ -18,10 +18,11 @@
 
 #import <SDWebImageManager.h>
 
-NSString *const kOffersCellIdentifier		= @"OffersCellID";
-NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
+NSString *const kOffersCellIdentifier						= @"OffersCellID";
+NSString *const kPlaceHolderCellIdentifier					= @"PlaceHolderCellID";
+NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegue";
 
-@interface SPOffersViewController () <NSFetchedResultsControllerDelegate, UINavigationControllerDelegate>
+@interface SPOffersViewController () <NSFetchedResultsControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
@@ -213,6 +214,16 @@ NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
 	}
 }
 
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+	if (buttonIndex == 1)
+	{
+		[self performSegueWithIdentifier:kSegueGoToConfigurationViewController sender:nil];
+	}
+}
+
 #pragma mark - Actions
 
 - (void)refresh:(UIEvent *)event
@@ -224,8 +235,13 @@ NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
 
 - (void)loadOffers
 {
-	[[SPReskitManager sharedInstance] loadOffersWithCompletionBlock:^(RKMappingResult *returnObject, BOOL success, NSError *error) {
+	[[SPReskitManager sharedInstance] loadOffersWithCompletionBlock:^(RKMappingResult *returnObject, BOOL success, SPError *error) {
 		[self.refreshControl endRefreshing];
+		
+		if (!success)
+		{
+			[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error", nil) message:error.message delegate:self cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:NSLocalizedString(@"offers_change_configuration",nil), nil] show];
+		}
 	}];
 }
 

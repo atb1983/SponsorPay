@@ -39,6 +39,7 @@
 		78F9BFB218F9FBD10044B82E /* _OfferType.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB118F9FBD10044B82E /* _OfferType.m */; };
 		78F9BFB518FA4CE70044B82E /* SPFilterOffersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB418FA4CE70044B82E /* SPFilterOffersTableViewController.m */; };
 		78F9BFBA18FA9DF90044B82E /* SPPlaceHolderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB918FA9DF90044B82E /* SPPlaceHolderTableViewCell.m */; };
+		78F9BFBD18FAB4980044B82E /* SPError.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFBC18FAB4980044B82E /* SPError.m */; };
 		B8432F645CE24C1394B6C41D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931B95E897FF43A6ABA87894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,8 @@
 		78F9BFB718FA67050044B82E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		78F9BFB818FA9DF90044B82E /* SPPlaceHolderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPlaceHolderTableViewCell.h; sourceTree = "<group>"; };
 		78F9BFB918FA9DF90044B82E /* SPPlaceHolderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPlaceHolderTableViewCell.m; sourceTree = "<group>"; };
+		78F9BFBB18FAB4980044B82E /* SPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPError.h; sourceTree = "<group>"; };
+		78F9BFBC18FAB4980044B82E /* SPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPError.m; sourceTree = "<group>"; };
 		931B95E897FF43A6ABA87894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,6 +208,8 @@
 				78F9BF6118F90DEB0044B82E /* Thumbnail.m */,
 				78F9BF6218F90DEB0044B82E /* TimeToPayout.h */,
 				78F9BF6318F90DEB0044B82E /* TimeToPayout.m */,
+				78F9BFBB18FAB4980044B82E /* SPError.h */,
+				78F9BFBC18FAB4980044B82E /* SPError.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				78F9BF8F18F90F0B0044B82E /* SponsorPay.xcdatamodeld in Sources */,
 				78F9BF7E18F90DEB0044B82E /* Offer.m in Sources */,
 				78F9BF8118F90DEB0044B82E /* SPRespose.m in Sources */,
+				78F9BFBD18FAB4980044B82E /* SPError.m in Sources */,
 				78F9BF8918F90DEB0044B82E /* SPReskitManager.m in Sources */,
 				78F9BF8218F90DEB0044B82E /* Thumbnail.m in Sources */,
 				78F9BF7A18F90DEB0044B82E /* NSString+Extentions.m in Sources */,

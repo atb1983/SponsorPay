@@ -29,7 +29,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OffersCellID" id="bbo-96-LYA">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bbo-96-LYA" id="Itj-FS-JKy">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -201,7 +201,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OffersCellID" rowHeight="114" id="m0d-ak-lc9" customClass="SPOfferTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="114"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0d-ak-lc9" id="d3P-M7-ByW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
@@ -250,7 +250,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceHolderCellID" rowHeight="66" id="bKw-YD-ycA" customClass="SPPlaceHolderTableViewCell">
-                                <rect key="frame" x="0.0" y="200" width="320" height="66"/>
+                                <rect key="frame" x="0.0" y="136" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKw-YD-ycA" id="bvk-v3-uEc">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
@@ -277,6 +277,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Offers" id="tQt-TN-PWz"/>
+                    <connections>
+                        <segue destination="QXg-Ya-tPB" kind="push" identifier="GoToConfigurationSegue" id="e30-gu-W0b"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,4 +291,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="e30-gu-W0b"/>
+    </inferredMetricsTieBreakers>
 </document>

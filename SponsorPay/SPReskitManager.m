@@ -12,6 +12,7 @@
 #import "SPRespose.h"
 #import "SPInformation.h"
 #import "_OfferType.h"
+#import "SPError.h"
 
 #import "NSString+Extentions.h"
 #import "NSMutableDictionary+SponsorPay.h"
@@ -81,9 +82,10 @@
 
 - (void)addErrorDescriptor
 {
-	RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
+	RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[SPError class]];
 	// The entire value at the source key path containing the errors maps to the message
-	[errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:@"message" toKeyPath:@"errorMessage"]];
+	[errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:@"message" toKeyPath:@"message"]];
+	[errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:@"code" toKeyPath:@"code"]];
 	NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
 	// Any response in the 4xx status code range with an "errors" key path uses this mapping
 	RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:errorMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"" statusCodes:statusCodes];
@@ -130,14 +132,14 @@
     RKEntityMapping *offersMapping = [RKEntityMapping mappingForEntityForName:kSPEntityOffer inManagedObjectStore:self.managedObjectStore];
 	
     [offersMapping addAttributeMappingsFromDictionary:@{
-													   @"title":			@"title",
-													   @"offer_id":			@"offerId",
-													   @"teaser":			@"teaser",
-													   @"required_actions":	@"requiredActions",
-													   @"link":				@"link",
-													   @"payout":			@"payout",
-													   @"store_id":			@"storeId",
-													   }];
+														@"title":			@"title",
+														@"offer_id":			@"offerId",
+														@"teaser":			@"teaser",
+														@"required_actions":	@"requiredActions",
+														@"link":				@"link",
+														@"payout":			@"payout",
+														@"store_id":			@"storeId",
+														}];
 	
 	offersMapping.identificationAttributes = @[@"offerId"];
 	
@@ -194,7 +196,7 @@
 
 - (void)loadOffersWithCompletionBlock:(RequestOperationHandler)completionBlock
 {
-	[self loadOffersByAppId:[KeychainUserPass load:kAPIOffersAppId] uid:[KeychainUserPass load:kAPIOffersUid] apiKey:[KeychainUserPass load:kAPIKey] pub0:[KeychainUserPass load:kAPIOffersPub0] completionBlock:^(RKMappingResult *returnObject, BOOL success, NSError *error) {
+	[self loadOffersByAppId:[KeychainUserPass load:kAPIOffersAppId] uid:[KeychainUserPass load:kAPIOffersUid] apiKey:[KeychainUserPass load:kAPIKey] pub0:[KeychainUserPass load:kAPIOffersPub0] completionBlock:^(RKMappingResult *returnObject, BOOL success, SPError *error) {
 		completionBlock(returnObject, success, error);
 	}];
 }
@@ -235,16 +237,9 @@
 	[offersDictionary hashDictionaryWithApiKey:apiKey];
 	
 	[self.manager getObject:nil path:kAPIOffersEndPoint parameters:offersDictionary success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		
-		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
-		NSLog(@"=======:%@",myDic);
-		
 		completionBlock(mappingResult, YES, nil);
 	} failure:^(RKObjectRequestOperation *operation, NSError *error) {
-		NSDictionary *myDic = [NSJSONSerialization JSONObjectWithData:operation.HTTPRequestOperation.responseData options:NSJSONReadingMutableLeaves error:nil];
-		NSLog(@"=======:%@",myDic);
-		
-		NSError *errorMessage =  [[error.userInfo objectForKey:RKObjectMapperErrorObjectsKey] firstObject];
+		id errorMessage = [[error.userInfo objectForKey:RKObjectMapperErrorObjectsKey] firstObject];
 		completionBlock(nil, NO, errorMessage);
 	}];
 }
