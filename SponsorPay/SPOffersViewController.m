@@ -36,20 +36,15 @@
 
 	self.title = NSLocalizedString(@"offers_vc_title", nil);
 	[self.navigationItem setHidesBackButton:YES];
+	[self.navigationController setDelegate:self];
 
 	// Number Formatter
 	self.numberFormatter = [[NSNumberFormatter alloc] init];
     [self.numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 	[self.numberFormatter setCurrencySymbol:@"€ "];
-	[self.numberFormatter setMaximumFractionDigits:0];	
-		
-	// RefreshControl
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
-    
-	[self.navigationController setDelegate:self];
+	[self.numberFormatter setMaximumFractionDigits:0];
 
+	[self addRefreshControl];
 	[self addTableHeader];
 	
     // Feed
@@ -234,6 +229,17 @@
     self.customHeader.backgroundColor = [UIColor clearColor];
 	
 	[self updateTableViewHeader];
+}
+
+/**
+ *  Add the refresh control to the tableview
+ */
+- (void)addRefreshControl
+{
+	// RefreshControl
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
 }
 
 /**

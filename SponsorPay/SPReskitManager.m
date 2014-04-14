@@ -274,6 +274,8 @@
 	}];
 }
 
+#pragma mark - Helpers
+
 /**
  *  Creates a base dictinary for the comunication with SponsorPay
  *

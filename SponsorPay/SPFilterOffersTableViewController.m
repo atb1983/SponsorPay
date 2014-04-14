@@ -139,6 +139,7 @@
 	[self.filters addObject:[[_OfferType alloc] initWithTypeId:@112 readable:@"Free" description:@"Free offers" selected:NO]];
 	[self.filters addObject:[[_OfferType alloc] initWithTypeId:@113 readable:@"Video" description:@"Video offers" selected:NO]];
 	
+	// We sort the array alphabetically
 	NSArray *sortedArray = [self.filters sortedArrayUsingComparator:^(id a, id b) {
 		NSString *first = [(_OfferType *)a description];
 		NSString *second = [(_OfferType *)b description];

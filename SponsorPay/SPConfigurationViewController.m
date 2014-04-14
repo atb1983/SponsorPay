@@ -11,8 +11,7 @@
 #import "KeychainUserPass.h"
 #import <MBProgressHUD.h>
 
-
-CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
+CGFloat const kScrollViewHeigthwWithKeyboardShown = 150.0f;
 
 @interface SPConfigurationViewController () <UITextFieldDelegate>
 
@@ -321,7 +320,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	{
 		if (keyboardShowing)
 		{
-			self.scrollViewHeightConstraint.constant = kScrollVieHeigthwWithKeyboardShown;
+			self.scrollViewHeightConstraint.constant = kScrollViewHeigthwWithKeyboardShown;
 			
 			[UIView animateWithDuration:0.25f animations:^
 			 {
