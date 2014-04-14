@@ -47,7 +47,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	[self configureScrollView];
 	[self loadData];
 	[self applyLocalization];
-    [self applyStyle];
+    [self applyStyles];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -197,7 +197,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 }
 
 // Set the style for the labels and text fields
-- (void)applyStyle
+- (void)applyStyles
 {
 	// Colors
     UIColor *defaultBlue = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
@@ -211,6 +211,7 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
     [self.apiKeyTextField applyBorderWithColor:defaultBlue];
 	[self.appIdTextField applyBorderWithColor:defaultBlue];
 	[self.pub0Textfield applyBorderWithColor:defaultBlue];
+	[self.changeFiltersButton applyBorderWithColor:defaultBlue];
     [self.nextButton applyBorderWithColor:defaultBlue];
 }
 
