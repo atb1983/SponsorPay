@@ -28,9 +28,19 @@ NSString* const kAPIOffersOsVersion		=	@"os_version";
 NSString* const kAPIOffersPage			=	@"page";
 NSString* const kAPIOffersTypes			=	@"offer_types";
 
+// User Defautls
+NSString *const kUserDefaultsFilters		= @"SPFilters";
+
 // Filter Offers VC
 NSString *const kFilterOffersCellIdentifier = @"OffersCellID";
-NSString *const kUserDefaultsFilters		= @"SPFilters";
+NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
+NSString *const kOffersCellIdentifier		= @"OffersCellID";
+
+// Segues
+NSString *const kSegueGoToOffersViewController				= @"GoToOffersViewControllerSegue";
+NSString *const kSegueGoToFilterOffersViewController		= @"GoToFilterOffersViewControllerSegue";
+NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegue";
+
 
 // Entities
 NSString* const kSPEntityOffer			=	@"Offer";

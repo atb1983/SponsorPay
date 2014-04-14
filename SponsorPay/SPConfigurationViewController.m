@@ -11,8 +11,7 @@
 #import "KeychainUserPass.h"
 #import <MBProgressHUD.h>
 
-NSString *const kSegueGoToOffersViewController			= @"GoToOffersViewControllerSegue";
-NSString *const kSegueGoToFilterOffersViewController	= @"GoToFilterOffersViewControllerSegue";
+
 CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 
 @interface SPConfigurationViewController () <UITextFieldDelegate>

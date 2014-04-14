@@ -19,11 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	NSString *like_UDID=[NSString stringWithFormat:@"%@",
-						 [[UIDevice currentDevice] identifierForVendor]];
-	
-	NSLog(@"%@",like_UDID);
-	
     return YES;
 }
 

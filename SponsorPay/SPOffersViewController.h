@@ -8,6 +8,5 @@
 
 @interface SPOffersViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

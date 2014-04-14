@@ -7,7 +7,7 @@
 */
 
 // Common
-"sponsorpay_tittle" = "SponsorPay";
+"sponsorpay_title" = "SponsorPay";
 "funtionality_not_implemented_yet" = "This funtionality is not implemented yet.";
 "error" = "Error";
 "ok" = "Ok";

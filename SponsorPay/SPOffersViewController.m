@@ -19,10 +19,6 @@
 
 #import <SDWebImageManager.h>
 
-NSString *const kOffersCellIdentifier						= @"OffersCellID";
-NSString *const kPlaceHolderCellIdentifier					= @"PlaceHolderCellID";
-NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegue";
-
 @interface SPOffersViewController () <NSFetchedResultsControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -123,7 +119,7 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 	// we return 1 when the fetchedResultsController is 0 or its sections in order to show the place holder
 	if ([[self.fetchedResultsController sections] count] > 0)
 	{
-		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.row];
+		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.section];
 		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
 		
 		if (numberOfObjects == 0)
@@ -157,7 +153,7 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 {
 	if ([[self.fetchedResultsController sections] count] > 0)
 	{
-		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.row];
+		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.section];
 		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
 		
         return numberOfObjects == 0 ? 60 : 114;
@@ -170,7 +166,7 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"common_sponsorpay_tittle", nil) message:NSLocalizedString(@"funtionality_not_implemented_yet", nil) delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil] show];
+	[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"sponsorpay_title", nil) message:NSLocalizedString(@"funtionality_not_implemented_yet", nil) delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil] show];
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

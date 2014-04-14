@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2C8D7B55-4B10-488C-9333-2C3DA54D8172</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SponsorPay</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E1E2548B-F24B-4674-8B4F-36AF68EEE8EC</key>
+		<string>https://bitbucket.org/afn1983/sponsorpay.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SponsorPay.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E1E2548B-F24B-4674-8B4F-36AF68EEE8EC</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/afn1983/sponsorpay.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E1E2548B-F24B-4674-8B4F-36AF68EEE8EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E1E2548B-F24B-4674-8B4F-36AF68EEE8EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SponsorPay</string>
+		</dict>
+	</array>
+</dict>
+</plist>
