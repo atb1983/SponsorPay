@@ -9,6 +9,7 @@
 #import "SPConfigurationViewController.h"
 #import "UIView+Border.h"
 #import "KeychainUserPass.h"
+#import <MBProgressHUD.h>
 
 NSString *const kSegueGoToOffersViewController			= @"GoToOffersViewControllerSegue";
 NSString *const kSegueGoToFilterOffersViewController	= @"GoToFilterOffersViewControllerSegue";
@@ -116,12 +117,14 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 {
 	if ([self validateFields])
 	{
-		NSString *previousKey = [KeychainUserPass load:kAPIKey];
-		
-		// if previousKey is not empty and it's different to new apikey, we erase coredata.
-		if ([previousKey length] > 0 && ![previousKey isEqualToString:self.apiKeyTextField.text])
+		if ([self isApiKeyOrAppIdNew])
 		{
+			[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
 			[[SPReskitManager sharedInstance] cleanupCoreData:^(BOOL finished) {
+				
+				[MBProgressHUD showHUDAddedTo:self.view animated:NO];
+
 				[self saveData];
 				[self performSegueWithIdentifier:kSegueGoToOffersViewController sender:nil];
 			}];
@@ -247,6 +250,32 @@ CGFloat const kScrollVieHeigthwWithKeyboardShown		= 150.0f;
 	}
 	
 	return YES;
+}
+
+/**
+ *  Detets if there is changes for the APIKEY or APP ID, in that case we need to erase coredata
+ *
+ *  @return YES when the method detects changes from the previous apikey or appid
+ */
+- (BOOL)isApiKeyOrAppIdNew
+{
+	BOOL result = NO;
+	
+	NSString *previousKey = [KeychainUserPass load:kAPIKey];
+	NSString *previousAppId = [KeychainUserPass load:kAPIOffersAppId];
+	
+	// if previousKey is not empty and it's different to new apikey
+	if ([previousKey length] > 0 && ![previousKey isEqualToString:self.apiKeyTextField.text])
+	{
+		return YES;
+	}
+	// if previousAppId is not empty and it's different to new appid
+	else if ([previousAppId length] > 0 && ![previousAppId isEqualToString:self.appIdTextField.text])
+	{
+		return YES;
+	}
+	
+	return result;
 }
 
 /**
