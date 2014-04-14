@@ -75,7 +75,7 @@
 #pragma mark - Helpers
 
 /**
- *  Add a header with util information
+ *  Add a header with useful information
  */
 - (void)addTableHeader
 {

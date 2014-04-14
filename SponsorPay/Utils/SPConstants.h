@@ -31,9 +31,8 @@ extern NSString* const kAPIOffersTypes;
 // User Defautls
 extern NSString *const kUserDefaultsFilters;
 
-// Filter Offers VC
+// Cell Identifiers
 extern NSString *const kFilterOffersCellIdentifier;
-extern NSString *const kPlaceHolderCellIdentifier;
 extern NSString *const kOffersCellIdentifier;
 
 // Segues

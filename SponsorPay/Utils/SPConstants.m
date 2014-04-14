@@ -31,9 +31,8 @@ NSString* const kAPIOffersTypes			=	@"offer_types";
 // User Defautls
 NSString *const kUserDefaultsFilters		= @"SPFilters";
 
-// Filter Offers VC
+// Cell Indentifiers
 NSString *const kFilterOffersCellIdentifier = @"OffersCellID";
-NSString *const kPlaceHolderCellIdentifier	= @"PlaceHolderCellID";
 NSString *const kOffersCellIdentifier		= @"OffersCellID";
 
 // Segues

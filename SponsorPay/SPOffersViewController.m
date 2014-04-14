@@ -8,7 +8,6 @@
 
 #import "SPOffersViewController.h"
 #import "SPOfferTableViewCell.h"
-#import "SPPlaceHolderTableViewCell.h"
 
 #import "Offer.h"
 #import "Thumbnail.h"
@@ -25,6 +24,7 @@
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 @property (nonatomic, strong) SPRespose *response;
 @property (nonatomic, assign) BOOL isShownPlaceHolder;
+@property (nonatomic, strong) UIView *customHeader;
 
 @end
 
@@ -41,14 +41,16 @@
 	self.numberFormatter = [[NSNumberFormatter alloc] init];
     [self.numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 	[self.numberFormatter setCurrencySymbol:@"€ "];
-	[self.numberFormatter setMaximumFractionDigits:0];
-	
+	[self.numberFormatter setMaximumFractionDigits:0];	
+		
 	// RefreshControl
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     
 	[self.navigationController setDelegate:self];
+
+	[self addTableHeader];
 	
     // Feed
     [self loadOffersWithPage:@1];
@@ -92,76 +94,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	// if there is not any section we return 1 (place holder)
-    return [[self.fetchedResultsController sections] count] > 0 ? [[self.fetchedResultsController sections] count] : 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	// we return 1 when the fetchedResultsController is 0 or its sections in order to show the place holder
 	if ([[self.fetchedResultsController sections] count] > 0)
 	{
         id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
 		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
 		
-        return numberOfObjects == 0 ? 1 : numberOfObjects;
+        return numberOfObjects;
     }
 	else
 	{
-        return 1;
+        return 0;
 	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell;
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kOffersCellIdentifier];
+	[self configureCell:(SPOfferTableViewCell *)cell atIndexPath:indexPath];
 	
-	// we return 1 when the fetchedResultsController is 0 or its sections in order to show the place holder
-	if ([[self.fetchedResultsController sections] count] > 0)
-	{
-		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.section];
-		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
-		
-		if (numberOfObjects == 0)
-		{
-			// No results
-			cell = [tableView dequeueReusableCellWithIdentifier:kPlaceHolderCellIdentifier];
-			[self configureCellWithPlaceHolderCell:(SPPlaceHolderTableViewCell *)cell atIndexPath:indexPath];
-
-			self.isShownPlaceHolder = YES;
-		}
-		else
-		{
-			cell = [tableView dequeueReusableCellWithIdentifier:kOffersCellIdentifier];
-			[self configureCell:(SPOfferTableViewCell *)cell atIndexPath:indexPath];
-			
-			self.isShownPlaceHolder = NO;
-		}
-	}
-	else
-	{
-		// No results
-		cell = [tableView dequeueReusableCellWithIdentifier:kPlaceHolderCellIdentifier];
-		[self configureCellWithPlaceHolderCell:(SPPlaceHolderTableViewCell *)cell atIndexPath:indexPath];
-	}
-	
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if ([[self.fetchedResultsController sections] count] > 0)
-	{
-		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.section];
-		NSInteger numberOfObjects = [sectionInfo numberOfObjects];
-		
-        return numberOfObjects == 0 ? 60 : 114;
-    }
-	else
-	{
-        return 60;
-	}
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,15 +157,8 @@
 	{
         case NSFetchedResultsChangeInsert:
 		{
-			if (self.isShownPlaceHolder)
-			{
-				[self.tableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-			}
-			else
-			{
-				[self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-			}
-            break;
+			[self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
 		}
         case NSFetchedResultsChangeDelete:
 		{
@@ -233,6 +182,8 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+	
+	[self updateTableViewHeader];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -270,6 +221,33 @@
 #pragma mark - Helpers
 
 /**
+ *  Add a header with util information
+ */
+- (void)addTableHeader
+{
+	self.customHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+	UILabel *helpLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.customHeader.frame.size.width - 10, 60)];
+	helpLabel.text = NSLocalizedString(@"offers_no_data", nil);
+	helpLabel.textAlignment = NSTextAlignmentCenter;
+	[helpLabel setNumberOfLines:2];
+	[self.customHeader addSubview:helpLabel];
+    self.customHeader.backgroundColor = [UIColor clearColor];
+	
+	self.tableView.tableHeaderView = self.customHeader;
+}
+
+- (void)updateTableViewHeader
+{
+    if ([self.fetchedResultsController.fetchedObjects count] == 0)
+    {
+        self.tableView.tableHeaderView = self.customHeader;
+    }
+    else
+    {
+        self.tableView.tableHeaderView = nil;
+    }
+}
+/**
  *  Load offers,  also allows pagination. if we have already a "response" and the count is bigger than pages it means that we can load more information
  * ATENTION: I coudn't test this properly, I wasn't able to get more than one page for the user : spiderman. I would like to have another use to test in order to make sure that this method is working well.
  */
@@ -304,15 +282,6 @@
 		
 		[self.tableView reloadData];
 	}];
-}
-
-- (void)configureCellWithPlaceHolderCell:(SPPlaceHolderTableViewCell *)cell atIndexPath:indexPath
-{
-	// No results
-	SPPlaceHolderTableViewCell *placeHolderCell = (SPPlaceHolderTableViewCell *)cell;
-	placeHolderCell.titleLabel.text = NSLocalizedString(@"offers_no_data", nil);
-	
-	self.isShownPlaceHolder = YES;
 }
 
 - (void)configureCell:(SPOfferTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath

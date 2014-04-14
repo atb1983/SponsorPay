@@ -38,7 +38,6 @@
 		78F9BFAF18F9F3F00044B82E /* KeychainUserPass.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFAE18F9F3F00044B82E /* KeychainUserPass.m */; };
 		78F9BFB218F9FBD10044B82E /* _OfferType.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB118F9FBD10044B82E /* _OfferType.m */; };
 		78F9BFB518FA4CE70044B82E /* SPFilterOffersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB418FA4CE70044B82E /* SPFilterOffersTableViewController.m */; };
-		78F9BFBA18FA9DF90044B82E /* SPPlaceHolderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFB918FA9DF90044B82E /* SPPlaceHolderTableViewCell.m */; };
 		78F9BFBD18FAB4980044B82E /* SPError.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F9BFBC18FAB4980044B82E /* SPError.m */; };
 		78F9BFE818FADD560044B82E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA29218F867420003BB3A /* XCTest.framework */; };
 		78F9BFE918FADD560044B82E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787EA26B18F867420003BB3A /* Foundation.framework */; };
@@ -118,8 +117,6 @@
 		78F9BFB318FA4CE70044B82E /* SPFilterOffersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFilterOffersTableViewController.h; sourceTree = "<group>"; };
 		78F9BFB418FA4CE70044B82E /* SPFilterOffersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFilterOffersTableViewController.m; sourceTree = "<group>"; };
 		78F9BFB718FA67050044B82E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		78F9BFB818FA9DF90044B82E /* SPPlaceHolderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPlaceHolderTableViewCell.h; sourceTree = "<group>"; };
-		78F9BFB918FA9DF90044B82E /* SPPlaceHolderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPlaceHolderTableViewCell.m; sourceTree = "<group>"; };
 		78F9BFBB18FAB4980044B82E /* SPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPError.h; sourceTree = "<group>"; };
 		78F9BFBC18FAB4980044B82E /* SPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPError.m; sourceTree = "<group>"; };
 		78F9BFE718FADD560044B82E /* SponsorPay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SponsorPay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,8 +288,6 @@
 			children = (
 				78F9BF9318F927410044B82E /* SPOfferTableViewCell.h */,
 				78F9BF9418F927410044B82E /* SPOfferTableViewCell.m */,
-				78F9BFB818FA9DF90044B82E /* SPPlaceHolderTableViewCell.h */,
-				78F9BFB918FA9DF90044B82E /* SPPlaceHolderTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -467,7 +462,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F9BFBA18FA9DF90044B82E /* SPPlaceHolderTableViewCell.m in Sources */,
 				78F9BF8F18F90F0B0044B82E /* SponsorPay.xcdatamodeld in Sources */,
 				78F9BF7E18F90DEB0044B82E /* Offer.m in Sources */,
 				78F9BF8118F90DEB0044B82E /* SPRespose.m in Sources */,
@@ -717,6 +711,7 @@
 				78F9BFF818FADD560044B82E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

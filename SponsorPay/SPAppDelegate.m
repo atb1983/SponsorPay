@@ -19,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[SPReskitManager sharedInstance];
+	
     return YES;
 }
 
