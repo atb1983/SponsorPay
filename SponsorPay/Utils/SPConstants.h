@@ -11,6 +11,7 @@
 extern NSString* const kAPIKey;
 extern NSInteger const kAPIKeyLength;
 extern NSString* const kAPIBaseURL;
+extern NSString* const kAPIResponseSignature;
 
 // Offers
 extern NSString* const kAPIOffersEndPoint;
@@ -49,3 +50,6 @@ extern NSString* const kSPEntityOffer;
 extern NSString* const kSPEntityOfferType;
 extern NSString* const kSPEntityThumbnail;
 extern NSString* const kSPEntityTimeToPayout;
+
+// Errors
+extern NSString* const kAPIResponseSignatureFail;

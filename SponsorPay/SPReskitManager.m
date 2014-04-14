@@ -255,7 +255,19 @@
 	[offersDictionary hashDictionaryWithApiKey:[KeychainUserPass load:kAPIKey]];
 	
 	[self.manager getObject:nil path:kAPIOffersEndPoint parameters:offersDictionary success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		completionBlock(mappingResult, YES, nil);
+				
+		if ([self checkSignature:operation])
+		{
+			completionBlock(mappingResult, YES, nil);
+		}
+		else
+		{
+			SPError *error = [[SPError alloc] init];
+			error.message = @"The Response Signature not valid. please check your internet connection.";
+			error.code = kAPIResponseSignatureFail;
+			
+			completionBlock(mappingResult, NO, error);
+		}
 	} failure:^(RKObjectRequestOperation *operation, NSError *error) {
 		id errorMessage = [[error.userInfo objectForKey:RKObjectMapperErrorObjectsKey] firstObject];
 		completionBlock(nil, NO, errorMessage);
@@ -294,6 +306,46 @@
 	}
 	
 	return baseDictionary;
+}
+
+/**
+ *  Method for verify the response signature
+ *
+ *  @param operation
+ *
+ *  @return YES or NO
+ */
+- (BOOL)checkSignature:(RKObjectRequestOperation *)operation
+{
+	BOOL result = NO;
+	
+	// First we need to check the response sginature
+	NSHTTPURLResponse *response = [[operation HTTPRequestOperation] response];
+	NSDictionary *headerDictionary = [response allHeaderFields];
+	NSString *signatureResponse = [headerDictionary objectForKey:kAPIResponseSignature];
+	
+	// Now we get the body
+	NSString *responseBody = [[NSString alloc] initWithData:operation.HTTPRequestOperation.responseData encoding:NSUTF8StringEncoding];
+	
+	// we concact the apikey
+	NSString *responseBodyAndApiKey = [responseBody stringByAppendingString:[KeychainUserPass load:kAPIKey]];
+	
+	// and	hash the full string
+	NSString *responseBodyAndKeySha1 = [responseBodyAndApiKey sha1];
+	
+	// comparation
+	if ([signatureResponse isEqualToString:responseBodyAndKeySha1])
+	{
+		NSLog(@"The signature is correct");
+		
+		return YES;
+	}
+	else
+	{
+		NSLog(@"We are not able to verify the signature");
+	}
+
+	return result;
 }
 
 @end

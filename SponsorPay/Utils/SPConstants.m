@@ -11,7 +11,7 @@
 NSString* const kAPIKey					=	@"apikey";
 NSInteger const kAPIKeyLength			=	40;
 NSString* const kAPIBaseURL				=	@"http://api.sponsorpay.com";
-
+NSString* const kAPIResponseSignature	=	@"X-Sponsorpay-Response-Signature";
 // Offers
 NSString* const kAPIOffersEndPoint		=	@"/feed/v1/offers.json";
 NSString* const kAPIOffersAppId			=	@"appid";
@@ -40,9 +40,11 @@ NSString *const kSegueGoToOffersViewController				= @"GoToOffersViewControllerSe
 NSString *const kSegueGoToFilterOffersViewController		= @"GoToFilterOffersViewControllerSegue";
 NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegue";
 
-
 // Entities
 NSString* const kSPEntityOffer			=	@"Offer";
 NSString* const kSPEntityOfferType		=	@"OfferType";
 NSString* const kSPEntityThumbnail		=	@"Thumbnail";
 NSString* const kSPEntityTimeToPayout	=	@"TimeToPayout";
+
+// Errors
+NSString* const kAPIResponseSignatureFail = @"SIGNATURE_FAIL";
