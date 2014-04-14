@@ -233,9 +233,12 @@
 	[self.customHeader addSubview:helpLabel];
     self.customHeader.backgroundColor = [UIColor clearColor];
 	
-	self.tableView.tableHeaderView = self.customHeader;
+	[self updateTableViewHeader];
 }
 
+/**
+ *  Shows a place holder when fetchedObjects are 0
+ */
 - (void)updateTableViewHeader
 {
     if ([self.fetchedResultsController.fetchedObjects count] == 0)

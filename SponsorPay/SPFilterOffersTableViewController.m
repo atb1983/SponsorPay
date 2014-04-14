@@ -54,6 +54,7 @@
 	_OfferType *offerType = [self.filters objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = offerType.description;
+	cell.detailTextLabel.text = offerType.readable;
 	cell.accessoryType = offerType.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 	
     return cell;
@@ -70,6 +71,8 @@
 	// update the cell with the cell accesory
 	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 	cell.accessoryType = offerType.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Helpers
@@ -135,6 +138,14 @@
 	[self.filters addObject:[[_OfferType alloc] initWithTypeId:@111 readable:@"Registration" description:@"Survey offers" selected:NO]];
 	[self.filters addObject:[[_OfferType alloc] initWithTypeId:@112 readable:@"Free" description:@"Free offers" selected:NO]];
 	[self.filters addObject:[[_OfferType alloc] initWithTypeId:@113 readable:@"Video" description:@"Video offers" selected:NO]];
+	
+	NSArray *sortedArray = [self.filters sortedArrayUsingComparator:^(id a, id b) {
+		NSString *first = [(_OfferType *)a description];
+		NSString *second = [(_OfferType *)b description];
+		return [first caseInsensitiveCompare:second];
+	}];
+
+	self.filters = [sortedArray mutableCopy];
 }
 
 @end
