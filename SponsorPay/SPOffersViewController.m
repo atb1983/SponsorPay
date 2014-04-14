@@ -28,6 +28,8 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 @property (nonatomic, strong) SPRespose *response;
+@property (nonatomic, assign) BOOL isShownPlaceHolder;
+
 @end
 
 @implementation SPOffersViewController
@@ -94,11 +96,13 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+	// if there is not any section we return 1 (place holder)
+    return [[self.fetchedResultsController sections] count] > 0 ? [[self.fetchedResultsController sections] count] : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+	// we return 1 when the fetchedResultsController is 0 or its sections in order to show the place holder
 	if ([[self.fetchedResultsController sections] count] > 0)
 	{
         id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
@@ -116,6 +120,7 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 {
 	UITableViewCell *cell;
 	
+	// we return 1 when the fetchedResultsController is 0 or its sections in order to show the place holder
 	if ([[self.fetchedResultsController sections] count] > 0)
 	{
 		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.row];
@@ -125,15 +130,23 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 		{
 			// No results
 			cell = [tableView dequeueReusableCellWithIdentifier:kPlaceHolderCellIdentifier];
-			SPPlaceHolderTableViewCell *placeHolderCell = (SPPlaceHolderTableViewCell *)cell;
-			placeHolderCell.titleLabel.text = NSLocalizedString(@"offers_no_data", nil);
+			[self configureCellWithPlaceHolderCell:(SPPlaceHolderTableViewCell *)cell atIndexPath:indexPath];
+
+			self.isShownPlaceHolder = YES;
 		}
-		
 		else
 		{
 			cell = [tableView dequeueReusableCellWithIdentifier:kOffersCellIdentifier];
 			[self configureCell:(SPOfferTableViewCell *)cell atIndexPath:indexPath];
+			
+			self.isShownPlaceHolder = NO;
 		}
+	}
+	else
+	{
+		// No results
+		cell = [tableView dequeueReusableCellWithIdentifier:kPlaceHolderCellIdentifier];
+		[self configureCellWithPlaceHolderCell:(SPPlaceHolderTableViewCell *)cell atIndexPath:indexPath];
 	}
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -153,6 +166,13 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 	{
         return 60;
 	}
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"common_sponsorpay_tittle", nil) message:NSLocalizedString(@"funtionality_not_implemented_yet", nil) delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil] show];
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -185,7 +205,14 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 	{
         case NSFetchedResultsChangeInsert:
 		{
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			if (self.isShownPlaceHolder)
+			{
+				[self.tableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			}
+			else
+			{
+				[self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			}
             break;
 		}
         case NSFetchedResultsChangeDelete:
@@ -211,7 +238,6 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 {
     [self.tableView endUpdates];
 }
-
 
 #pragma mark - UIScrollViewDelegate
 
@@ -279,7 +305,18 @@ NSString *const kSegueGoToConfigurationViewController		= @"GoToConfigurationSegu
 		{
 			self.response = [returnObject.array objectAtIndex:0];
 		}
+		
+		[self.tableView reloadData];
 	}];
+}
+
+- (void)configureCellWithPlaceHolderCell:(SPPlaceHolderTableViewCell *)cell atIndexPath:indexPath
+{
+	// No results
+	SPPlaceHolderTableViewCell *placeHolderCell = (SPPlaceHolderTableViewCell *)cell;
+	placeHolderCell.titleLabel.text = NSLocalizedString(@"offers_no_data", nil);
+	
+	self.isShownPlaceHolder = YES;
 }
 
 - (void)configureCell:(SPOfferTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
