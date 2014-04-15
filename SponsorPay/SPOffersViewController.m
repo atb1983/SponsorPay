@@ -307,7 +307,7 @@
 	
 	//using the SDWebImage downloader, start downloading the image
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-	[manager downloadWithURL:[NSURL URLWithString:offer.offerToThumbnail.lowres]
+	[manager downloadWithURL:[NSURL URLWithString:offer.offerToThumbnail.hires]
 					 options:0
 					progress:^(NSInteger receivedSize, NSInteger expectedSize) {
 					}
