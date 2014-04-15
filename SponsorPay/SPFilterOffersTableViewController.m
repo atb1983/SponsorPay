@@ -99,10 +99,20 @@
  */
 - (void)loadSavedFilters
 {
-	NSData *filtersEncoded = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsFilters];
-	self.filters = [NSKeyedUnarchiver unarchiveObjectWithData: filtersEncoded];
-	
-	if (!self.filters)
+	if ([[[NSUserDefaults standardUserDefaults] dictionaryRepresentation].allKeys containsObject:kUserDefaultsFilters])
+	{
+		NSData *filtersEncoded = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsFilters];
+
+		if (filtersEncoded)
+		{
+			self.filters = [NSKeyedUnarchiver unarchiveObjectWithData: filtersEncoded];
+		}
+		else
+		{
+			[self createFilters];
+		}
+    }
+	else
 	{
 		[self createFilters];
 	}
